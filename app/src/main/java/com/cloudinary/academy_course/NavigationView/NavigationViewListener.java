@@ -39,6 +39,7 @@ public class NavigationViewListener implements NavigationView.OnNavigationItemSe
             fragment = new UploadFragment();
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left);
         transaction.replace(R.id.nav_host_fragment_content_main, fragment);
         transaction.commit();
         DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
