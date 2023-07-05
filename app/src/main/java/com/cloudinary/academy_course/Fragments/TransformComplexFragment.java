@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 
 import com.cloudinary.academy_course.databinding.TransformComplexFragmentBinding;
 
-public class TransfromComplexFragment extends Fragment {
+public class TransformComplexFragment extends Fragment {
 
     private TransformComplexFragmentBinding binding;
 

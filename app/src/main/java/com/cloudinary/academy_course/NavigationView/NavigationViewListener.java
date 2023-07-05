@@ -10,10 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.cloudinary.academy_course.Fragments.TransfromComplexFragment;
+import com.cloudinary.academy_course.Fragments.TransformComplexFragment;
 import com.cloudinary.academy_course.Fragments.UploadFragment;
 import com.cloudinary.academy_course.R;
-import com.cloudinary.academy_course.Fragments.TransfromFragment;
+import com.cloudinary.academy_course.Fragments.TransformFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class NavigationViewListener implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,9 +30,9 @@ public class NavigationViewListener implements NavigationView.OnNavigationItemSe
         Fragment fragment = null;
         FragmentManager fragmentManager = activity.getFragmentManager();
         if (id == R.id.nav_transform) {
-            fragment = new TransfromFragment();
+            fragment = new TransformFragment();
         } else if (id == R.id.nav_complex_transform) {
-            fragment = new TransfromComplexFragment();
+            fragment = new TransformComplexFragment();
         } else if (id == R.id.nav_upload) {
             fragment = new UploadFragment();
         }

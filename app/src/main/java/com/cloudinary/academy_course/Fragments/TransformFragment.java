@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.cloudinary.academy_course.databinding.TransformFragmentBinding;
 
-public class TransfromFragment extends Fragment {
+public class TransformFragment extends Fragment {
 
     private TransformFragmentBinding binding;
 
