@@ -8,12 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.cloudinary.academy_course.databinding.UploadFragmentBinding;
-import com.cloudinary.academy_course.databinding.WelcomeFragmentBinding;
+import com.cloudinary.academy_course.databinding.UploadLargeFragmentBinding;
 
-public class UploadFragment extends Fragment {
+public class UploadLargeFragment extends Fragment {
 
-    private UploadFragmentBinding binding;
+    private UploadLargeFragmentBinding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +20,7 @@ public class UploadFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = UploadFragmentBinding.inflate(inflater, container, false);
+        binding = UploadLargeFragmentBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }

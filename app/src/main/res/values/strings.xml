@@ -13,4 +13,6 @@
     <string name="welcome_complex_transform">Welcome To Complex Transform Example</string>
     <string name="welcome_transform">Welcome To Transform Example</string>
     <string name="welcome_upload">Welcome To Upload Example</string>
+    <string name="welcome_large_upload">Welcome To Large Upload Example</string>
+
 </resources>

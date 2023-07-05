@@ -18,10 +18,14 @@ import androidx.navigation.ui.NavigationUI;
 import com.cloudinary.academy_course.Fragments.WelcomeFragment;
 import com.cloudinary.academy_course.NavigationView.NavigationViewListener;
 import com.cloudinary.academy_course.databinding.ActivityMainBinding;
+import com.cloudinary.android.MediaManager;
 import com.google.android.material.navigation.NavigationView;
 
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -35,9 +39,17 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        initCloudinary();
         setDrawer();
         setNavigationView();
         setFirstFragment();
+    }
+
+    private void initCloudinary() {
+        Map config = new HashMap();
+        config.put("cloud_name", "jenbrissman");
+        config.put("secure", true);
+        MediaManager.init(this, config);
     }
 
     private void setNavigationView() {
