@@ -1,12 +1,13 @@
 package com.cloudinary.academy_course.Fragments;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import com.cloudinary.academy_course.databinding.TransformFragmentBinding;
 
 public class TransformFragment extends Fragment {

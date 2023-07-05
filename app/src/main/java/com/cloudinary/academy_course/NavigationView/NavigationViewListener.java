@@ -1,14 +1,16 @@
 package com.cloudinary.academy_course.NavigationView;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.content.Context;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.cloudinary.academy_course.Fragments.TransformComplexFragment;
 import com.cloudinary.academy_course.Fragments.UploadFragment;
@@ -18,9 +20,9 @@ import com.google.android.material.navigation.NavigationView;
 
 public class NavigationViewListener implements NavigationView.OnNavigationItemSelectedListener {
 
-    Activity activity;
+    AppCompatActivity activity;
 
-    public NavigationViewListener(Activity activity) {
+    public NavigationViewListener(AppCompatActivity activity) {
         this.activity = activity;
     }
     @Override
@@ -28,7 +30,7 @@ public class NavigationViewListener implements NavigationView.OnNavigationItemSe
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Fragment fragment = null;
-        FragmentManager fragmentManager = activity.getFragmentManager();
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
         if (id == R.id.nav_transform) {
             fragment = new TransformFragment();
         } else if (id == R.id.nav_complex_transform) {
