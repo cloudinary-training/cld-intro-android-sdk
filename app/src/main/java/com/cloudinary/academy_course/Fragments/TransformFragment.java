@@ -41,7 +41,7 @@ public class TransformFragment extends Fragment {
     }
 
     private void setImageView(String publicId) {
-        String URL = MediaManager.get().url().transformation(new Transformation().effect("cartoonify")).generate(publicId);
+        String URL = MediaManager.get().url().transformation(new Transformation().effect("grayscale")).generate(publicId);
         ImageView transformImageview = binding.transformImageview;
         Glide.with(this).load(URL).into(transformImageview);
     }
