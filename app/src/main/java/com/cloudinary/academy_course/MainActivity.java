@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initCloudinary() {
         Map config = new HashMap();
-        config.put("cloud_name", "jenbrissman");
+        config.put("cloud_name", "jen-brissman");
         config.put("secure", true);
         MediaManager.init(this, config);
     }
