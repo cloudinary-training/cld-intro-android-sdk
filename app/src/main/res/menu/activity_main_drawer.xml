@@ -7,11 +7,11 @@
     <menu>
         <item
             android:id="@+id/nav_transform"
-            android:icon="@drawable/ic_launcher_background"
+            android:icon="@drawable/transform"
             android:title="Transform" />
         <item
             android:id="@+id/nav_complex_transform"
-            android:icon="@drawable/ic_launcher_background"
+            android:icon="@drawable/transform"
             android:title="Complex Transform" />
     </menu>
     </item>
@@ -20,11 +20,11 @@
         <menu>
             <item
                 android:id="@+id/nav_upload"
-                android:icon="@drawable/ic_launcher_background"
+                android:icon="@drawable/upload"
                 android:title="Upload" />
             <item
                 android:id="@+id/nav_upload_large"
-                android:icon="@drawable/ic_launcher_background"
+                android:icon="@drawable/upload"
                 android:title="Upload Large" />
         </menu>
     </item>
