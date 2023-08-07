@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.cloudinary.Transformation;
 import com.cloudinary.academy_course.databinding.TransformComplexFragmentBinding;
 import com.cloudinary.android.MediaManager;
+import com.cloudinary.transformation.TextLayer;
 
 public class TransformComplexFragment extends Fragment {
 
@@ -42,7 +43,13 @@ public class TransformComplexFragment extends Fragment {
 
 
     private void setImageView(String publicId) {
-        String URL = MediaManager.get().url().transformation(new Transformation().effect("cartoonify")).generate(publicId);
+        String URL = MediaManager.get().url().transformation(new Transformation()
+                .effect("cartoonify").chain()
+                .radius("max").chain()
+                .effect("outline:100").color("lightgreen").chain()
+                .background("lightblue").chain()
+                .height(300).crop("scale")).generate(publicId);
+
         ImageView transformComplexImageview = binding.transformComplexImageview;
         Glide.with(this).load(URL).into(transformComplexImageview);
 
