@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.cloudinary.academy_course.Fragments.PreProcessingFragment;
 import com.cloudinary.academy_course.Fragments.TransformComplexFragment;
 import com.cloudinary.academy_course.Fragments.UploadFragment;
 import com.cloudinary.academy_course.Fragments.UploadLargeFragment;
@@ -40,6 +41,8 @@ public class NavigationViewListener implements NavigationView.OnNavigationItemSe
             fragment = new UploadFragment();
         } else if (id == R.id.nav_upload_large) {
             fragment = new UploadLargeFragment();
+        } else if (id == R.id.nav_preprocessing) {
+            fragment = new PreProcessingFragment();
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left);

@@ -26,6 +26,10 @@
                 android:id="@+id/nav_upload_large"
                 android:icon="@drawable/upload"
                 android:title="Upload Large" />
+            <item
+                android:id="@+id/nav_preprocessing"
+                android:icon="@drawable/upload"
+                android:title="Pre Processing Image"/>
         </menu>
     </item>
 

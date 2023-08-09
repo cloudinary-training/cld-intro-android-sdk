@@ -82,10 +82,10 @@ public class UploadLargeFragment extends Fragment {
     }
 
     public void setImageView(String imageView) {
-        this.imageView = imageView;
+//        this.imageView = imageView;
     }
 
-    public String getImageView() {
-        return imageView;
-    }
+//    public String getImageView() {
+//        return imageView;
+//    }
 }
