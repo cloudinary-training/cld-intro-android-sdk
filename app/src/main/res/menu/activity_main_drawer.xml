@@ -32,5 +32,13 @@
                 android:title="Pre Processing Image"/>
         </menu>
     </item>
+    <item android:title="Download">
+        <menu>
+            <item
+                android:id="@+id/nav_glide_integration"
+                android:icon="@drawable/upload"
+                android:title="Glide Integration"/>
+        </menu>
+    </item>
 
 </menu>
