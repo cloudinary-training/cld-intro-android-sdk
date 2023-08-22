@@ -35,6 +35,22 @@
     <item android:title="Download">
         <menu>
             <item
+                android:id="@+id/nav_glide_download"
+                android:icon="@drawable/upload"
+                android:title="Glide"/>
+            <item
+                android:id="@+id/nav_picasso_download"
+                android:icon="@drawable/upload"
+                android:title="Picasso"/>
+            <item
+                android:id="@+id/nav_fresco_download"
+                android:icon="@drawable/upload"
+                android:title="Fresco"/>
+        </menu>
+    </item>
+    <item android:title="Download Integration">
+        <menu>
+            <item
                 android:id="@+id/nav_glide_integration"
                 android:icon="@drawable/upload"
                 android:title="Glide Integration"/>

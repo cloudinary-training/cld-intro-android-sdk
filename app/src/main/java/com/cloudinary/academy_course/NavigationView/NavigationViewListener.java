@@ -12,7 +12,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.cloudinary.academy_course.Fragments.FrescoDownloadFragment;
+import com.cloudinary.academy_course.Fragments.GlideDownloadFragment;
 import com.cloudinary.academy_course.Fragments.GlideIntegrationFragment;
+import com.cloudinary.academy_course.Fragments.PicassoDownloadFragment;
 import com.cloudinary.academy_course.Fragments.PreProcessingFragment;
 import com.cloudinary.academy_course.Fragments.TransformComplexFragment;
 import com.cloudinary.academy_course.Fragments.UploadFragment;
@@ -44,6 +47,12 @@ public class NavigationViewListener implements NavigationView.OnNavigationItemSe
             fragment = new UploadLargeFragment();
         } else if (id == R.id.nav_preprocessing) {
             fragment = new PreProcessingFragment();
+        } else if (id == R.id.nav_glide_download) {
+            fragment = new GlideDownloadFragment();
+        } else if (id == R.id.nav_picasso_download) {
+            fragment = new PicassoDownloadFragment();
+        } else if (id == R.id.nav_fresco_download) {
+            fragment = new FrescoDownloadFragment();
         } else if (id == R.id.nav_glide_integration) {
             fragment = new GlideIntegrationFragment();
         }
