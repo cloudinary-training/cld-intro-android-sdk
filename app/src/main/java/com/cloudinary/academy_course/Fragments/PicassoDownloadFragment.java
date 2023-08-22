@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import com.cloudinary.academy_course.databinding.GlideDownloadFragmentBinding;
 import com.cloudinary.academy_course.databinding.PicassoDownloadFragmentBinding;
 import com.cloudinary.android.MediaManager;
+import com.cloudinary.android.download.glide.GlideDownloadRequestBuilderFactory;
+import com.cloudinary.android.download.picasso.PicassoDownloadRequestBuilderFactory;
 
 public class PicassoDownloadFragment extends Fragment {
 
@@ -28,7 +30,7 @@ public class PicassoDownloadFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setImageViewWithGlideIntegration();
+        setImageViewWithPicassoIntegration();
     }
 
     @Override
@@ -37,9 +39,10 @@ public class PicassoDownloadFragment extends Fragment {
         binding = null;
     }
 
-    private void setImageViewWithGlideIntegration() {
+    private void setImageViewWithPicassoIntegration() {
+        MediaManager.get().setDownloadRequestBuilderFactory(new PicassoDownloadRequestBuilderFactory());
         ImageView imageView = binding.picassoDownloadImageview;
-        GlideApp.with(this).load(MediaManager.get().url().generate("sample.jpg")).into(imageView);;
+        MediaManager.get().download(getActivity()).load(MediaManager.get().url().generate("sample.jpg")).into(imageView);;
     }
 
 }

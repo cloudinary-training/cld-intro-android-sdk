@@ -15,6 +15,7 @@ import com.cloudinary.academy_course.databinding.GlideIntegrationFragmentBinding
 import com.cloudinary.android.CloudinaryRequest;
 import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.ResponsiveUrl;
+import com.cloudinary.android.download.glide.GlideDownloadRequestBuilderFactory;
 
 public class GlideDownloadFragment extends Fragment {
 
@@ -41,8 +42,9 @@ public class GlideDownloadFragment extends Fragment {
     }
 
     private void setImageViewWithGlideIntegration() {
+        MediaManager.get().setDownloadRequestBuilderFactory(new GlideDownloadRequestBuilderFactory());
         ImageView imageView = binding.glideDownloadImageview;
-        GlideApp.with(this).load(MediaManager.get().url().generate("sample.jpg")).into(imageView);;
+        MediaManager.get().download(getActivity()).load(MediaManager.get().url().generate("sample.jpg")).into(imageView);
     }
 
 }

@@ -12,6 +12,11 @@ import androidx.fragment.app.Fragment;
 import com.cloudinary.academy_course.databinding.FrescoDownloadFragmentBinding;
 import com.cloudinary.academy_course.databinding.GlideDownloadFragmentBinding;
 import com.cloudinary.android.MediaManager;
+import com.cloudinary.android.download.fresco.FrescoDownloadRequestBuilderFactory;
+import com.cloudinary.android.download.glide.GlideDownloadRequestBuilderFactory;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.DraweeView;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 public class FrescoDownloadFragment extends Fragment {
 
@@ -22,13 +27,14 @@ public class FrescoDownloadFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
+        Fresco.initialize(getActivity());
         binding = FrescoDownloadFragmentBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setImageViewWithGlideIntegration();
+        setImageViewWithFrescoIntegration();
     }
 
     @Override
@@ -37,9 +43,10 @@ public class FrescoDownloadFragment extends Fragment {
         binding = null;
     }
 
-    private void setImageViewWithGlideIntegration() {
-        ImageView imageView = binding.frescoDownloadImageview;
-        GlideApp.with(this).load(MediaManager.get().url().generate("sample.jpg")).into(imageView);;
+    private void setImageViewWithFrescoIntegration() {
+        MediaManager.get().setDownloadRequestBuilderFactory(new FrescoDownloadRequestBuilderFactory());
+        SimpleDraweeView imageView = binding.frescoDownloadImageview;
+        MediaManager.get().download(getActivity()).load(MediaManager.get().url().generate("sample")).into(imageView);;
     }
 
 }

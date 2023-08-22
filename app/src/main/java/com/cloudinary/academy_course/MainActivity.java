@@ -19,6 +19,7 @@ import com.cloudinary.academy_course.Fragments.WelcomeFragment;
 import com.cloudinary.academy_course.NavigationView.NavigationViewListener;
 import com.cloudinary.academy_course.databinding.ActivityMainBinding;
 import com.cloudinary.android.MediaManager;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.android.material.navigation.NavigationView;
 
 import android.view.Menu;
