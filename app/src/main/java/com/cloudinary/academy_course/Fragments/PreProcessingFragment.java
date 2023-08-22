@@ -10,11 +10,9 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.DispatchQueue;
 
 import com.bumptech.glide.Glide;
 import com.cloudinary.academy_course.databinding.PreprocessFragmentBinding;
-import com.cloudinary.academy_course.databinding.WelcomeFragmentBinding;
 import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
