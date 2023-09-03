@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item android:title="Transform">
+    <item android:title="Delivery">
     <menu>
         <item
             android:id="@+id/nav_transform"
@@ -13,6 +13,10 @@
             android:id="@+id/nav_complex_transform"
             android:icon="@drawable/transform"
             android:title="Complex Transform" />
+        <item
+            android:id="@+id/nav_optimization"
+            android:icon="@drawable/transform"
+            android:title="Optimization" />
     </menu>
     </item>
 

@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.cloudinary.academy_course.Fragments.FrescoDownloadFragment;
 import com.cloudinary.academy_course.Fragments.GlideDownloadFragment;
 import com.cloudinary.academy_course.Fragments.GlideIntegrationFragment;
+import com.cloudinary.academy_course.Fragments.OptimizationFragment;
 import com.cloudinary.academy_course.Fragments.PicassoDownloadFragment;
 import com.cloudinary.academy_course.Fragments.PreProcessingFragment;
 import com.cloudinary.academy_course.Fragments.TransformComplexFragment;
@@ -55,6 +56,8 @@ public class NavigationViewListener implements NavigationView.OnNavigationItemSe
             fragment = new FrescoDownloadFragment();
         } else if (id == R.id.nav_glide_integration) {
             fragment = new GlideIntegrationFragment();
+        } else if (id == R.id.nav_optimization) {
+            fragment = new OptimizationFragment();
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left);
