@@ -1,4 +1,4 @@
-package com.cloudinary.academy_course.Fragments;
+package com.cloudinary.academy_course;
 
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;

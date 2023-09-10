@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.cloudinary.Transformation;
+import com.cloudinary.academy_course.GlideApp;
 import com.cloudinary.academy_course.databinding.GlideIntegrationFragmentBinding;
 import com.cloudinary.academy_course.databinding.WelcomeFragmentBinding;
 import com.cloudinary.android.CloudinaryRequest;
