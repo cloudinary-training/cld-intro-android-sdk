@@ -1,7 +1,5 @@
 package com.cloudinary.academy_course.NavigationView;
 
-import android.app.Activity;
-import android.content.Context;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -22,7 +20,7 @@ import com.cloudinary.academy_course.Fragments.TransformComplexFragment;
 import com.cloudinary.academy_course.Fragments.UploadFragment;
 import com.cloudinary.academy_course.Fragments.UploadLargeFragment;
 import com.cloudinary.academy_course.R;
-import com.cloudinary.academy_course.Fragments.TransformFragment;
+import com.cloudinary.academy_course.Fragments.transform_fragment.TransformFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class NavigationViewListener implements NavigationView.OnNavigationItemSelectedListener {

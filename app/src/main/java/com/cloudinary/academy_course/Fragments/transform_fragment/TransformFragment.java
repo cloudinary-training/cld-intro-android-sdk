@@ -1,22 +1,24 @@
-package com.cloudinary.academy_course.Fragments;
+package com.cloudinary.academy_course.Fragments.transform_fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.cloudinary.Transformation;
 import com.cloudinary.academy_course.databinding.TransformFragmentBinding;
-import com.cloudinary.android.MediaManager;
+
+import java.util.Arrays;
 
 public class TransformFragment extends Fragment {
 
     private TransformFragmentBinding binding;
+    private RecyclerView recyclerView;
 
     @Override
     public View onCreateView(
@@ -31,8 +33,10 @@ public class TransformFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setImageView("lorikeet");
+        initRecycleView();
     }
+
+
 
     @Override
     public void onDestroyView() {
@@ -40,12 +44,12 @@ public class TransformFragment extends Fragment {
         binding = null;
     }
 
-    private void setImageView(String publicId) {
-        String URL = MediaManager.get().url().transformation(new Transformation().effect("grayscale")).generate(publicId);
-        ImageView transformImageview = binding.transformImageview;
-        Glide.with(this).load(URL).into(transformImageview);
+    private void initRecycleView() {
+        recyclerView = binding.transformRecyclerView;
+        TransformRecycleAdapter adapter = new TransformRecycleAdapter(Arrays.asList("lorikeet","lorikeet", "lorikeet", "lorikeet", "lorikeet", "lorikeet"));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView.setAdapter(adapter);
     }
-
 }
 
 
