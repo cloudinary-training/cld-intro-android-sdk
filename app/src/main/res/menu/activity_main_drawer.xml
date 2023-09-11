@@ -60,5 +60,13 @@
                 android:title="Glide Integration"/>
         </menu>
     </item>
+    <item android:title="UI">
+        <menu>
+            <item
+                android:id="@+id/nav_upload_widget"
+                android:icon="@drawable/upload"
+                android:title="Upload Widget"/>
+        </menu>
+    </item>
 
 </menu>

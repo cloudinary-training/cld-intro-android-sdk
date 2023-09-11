@@ -1,8 +1,10 @@
 package com.cloudinary.academy_course;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -15,6 +17,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.cloudinary.academy_course.Fragments.UploadWidgetFragment;
 import com.cloudinary.academy_course.Fragments.WelcomeFragment;
 import com.cloudinary.academy_course.NavigationView.NavigationViewListener;
 import com.cloudinary.academy_course.databinding.ActivityMainBinding;
@@ -26,6 +29,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -77,6 +81,17 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.nav_host_fragment_content_main, welcomeFragment);
         transaction.commit();
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            List<Fragment> fragments = fragmentManager.getFragments();
+            if (fragments.get(0) instanceof UploadWidgetFragment) {
+                ((UploadWidgetFragment) fragments.get(0)).handleResultWidgetResult(data);
+            }
+        }
     }
 }
