@@ -66,6 +66,10 @@
                 android:id="@+id/nav_upload_widget"
                 android:icon="@drawable/upload"
                 android:title="Upload Widget"/>
+            <item
+                android:id="@+id/nav_video_player"
+                android:icon="@drawable/upload"
+                android:title="Video Player"/>
         </menu>
     </item>
 
