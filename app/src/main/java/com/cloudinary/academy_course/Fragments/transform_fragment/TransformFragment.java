@@ -46,7 +46,7 @@ public class TransformFragment extends Fragment {
 
     private void initRecycleView() {
         recyclerView = binding.transformRecyclerView;
-        TransformRecycleAdapter adapter = new TransformRecycleAdapter(Arrays.asList("lorikeet","lorikeet", "lorikeet", "lorikeet", "lorikeet", "lorikeet"));
+        TransformRecycleAdapter adapter = new TransformRecycleAdapter(Arrays.asList("sample","sample", "sample", "sample"));
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         recyclerView.setAdapter(adapter);
     }

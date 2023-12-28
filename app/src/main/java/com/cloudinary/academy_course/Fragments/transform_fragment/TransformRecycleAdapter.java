@@ -42,7 +42,21 @@ public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolde
         String imagePublicId = imagePublicIds.get(position);
 
         // Load the image into the ImageView using a library like Picasso or Glide
-        setImageView(imagePublicId);
+        setText(position);
+        setImageView(position);
+    }
+
+    private void setText(int position) {
+        switch(position) {
+            case 0:
+                itemViewBinding.imageCellTitle.setText("Original");
+                break;
+            case 1:
+                itemViewBinding.imageCellTitle.setText("Greyscale");
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -50,10 +64,20 @@ public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolde
         return imagePublicIds.size();
     }
 
-        private void setImageView(String publicId) {
-        String URL = MediaManager.get().url().transformation(new Transformation().effect("grayscale")).generate(publicId);
+        private void setImageView(int position) {
+        String url = null;
+        switch(position) {
+            case 0:
+                url = MediaManager.get().url().generate(imagePublicIds.get(position));
+                break;
+            case 1:
+                url = MediaManager.get().url().transformation(new Transformation().effect("grayscale")).generate(imagePublicIds.get(position));
+                break;
+            default:
+                break;
+        }
         ImageView transformImageview = itemViewBinding.itemImageview;
-        Glide.with(context).load(URL).into(transformImageview);
+        Glide.with(context).load(url).into(transformImageview);
     }
 }
 
