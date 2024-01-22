@@ -1,9 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Academy_Course" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
     </style>
 
-    <style name="Theme.Academy_Course" parent="Base.Theme.Academy_Course" />z
+    <style name="Theme.Academy_Course" parent="Base.Theme.Academy_Course" />
 </resources>
