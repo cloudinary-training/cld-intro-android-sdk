@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cloudinary Academy</string>
+    <string name="app_name">Cloudinary Academy Course</string>
     <string name="title_activity_splash">SplashScreen</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->

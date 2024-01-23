@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.navigation.ui.AppBarConfiguration;
@@ -17,7 +16,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import com.cloudinary.academy_course.databinding.ActivitySplashBinding;
 import com.cloudinary.academy_course.utils.Utils;
 
-public class SplashActivity extends AppCompatActivity {
+public class InitialActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivitySplashBinding binding;
