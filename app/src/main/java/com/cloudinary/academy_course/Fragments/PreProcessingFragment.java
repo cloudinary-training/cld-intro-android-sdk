@@ -41,6 +41,7 @@ public class PreProcessingFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setOriginalImage();
         preProcessImage();
     }
 
@@ -48,6 +49,11 @@ public class PreProcessingFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    private void setOriginalImage() {
+        ImageView originalImageView = binding.preprocessingOriginalImageview;
+        Glide.with(this).load("https://res.cloudinary.com/adimizrahi2/image/upload/v1705927762/butterfly.jpg").into(originalImageView);
     }
 
     private void preProcessImage() {
@@ -91,7 +97,7 @@ public class PreProcessingFragment extends Fragment {
 
     private void setImageView(String publicId) {
         String URL = MediaManager.get().url().generate(publicId);
-        ImageView uploadImageview = binding.preprocessImageview;
+        ImageView uploadImageview = binding.preprocessingOptimizedImageview;
         Glide.with(this).load(URL).into(uploadImageview);
     }
 
