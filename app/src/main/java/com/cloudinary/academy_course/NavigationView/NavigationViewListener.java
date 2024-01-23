@@ -18,7 +18,6 @@ import com.cloudinary.academy_course.Fragments.PicassoDownloadFragment;
 import com.cloudinary.academy_course.Fragments.PreProcessingFragment;
 import com.cloudinary.academy_course.Fragments.TransformComplexFragment;
 import com.cloudinary.academy_course.Fragments.UploadFragment;
-import com.cloudinary.academy_course.Fragments.UploadLargeFragment;
 import com.cloudinary.academy_course.Fragments.UploadWidgetFragment;
 import com.cloudinary.academy_course.Fragments.VideoPlayerFragment;
 import com.cloudinary.academy_course.R;
@@ -44,8 +43,6 @@ public class NavigationViewListener implements NavigationView.OnNavigationItemSe
             fragment = new TransformComplexFragment();
         } else if (id == R.id.nav_upload) {
             fragment = new UploadFragment();
-        } else if (id == R.id.nav_upload_large) {
-            fragment = new UploadLargeFragment();
         } else if (id == R.id.nav_preprocessing) {
             fragment = new PreProcessingFragment();
         } else if (id == R.id.nav_glide_download) {
