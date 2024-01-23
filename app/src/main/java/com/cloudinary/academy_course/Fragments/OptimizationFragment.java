@@ -48,13 +48,13 @@ public class OptimizationFragment extends Fragment {
 
     private void setNoOptimizationImageView(String publicId) {
         String URL = MediaManager.get().url().generate(publicId);
-        ImageView transformImageview = binding.notOptimizedImageview;
+        ImageView transformImageview = binding.optimizationOriginalImageview;
         Glide.with(this).load(URL).into(transformImageview);
     }
 
     private void setOptimizationImageView(String publicId) {
         String URL = MediaManager.get().url().transformation(new Transformation().fetchFormat("webp").quality("auto").dpr("auto")).generate(publicId);
-        ImageView transformImageview = binding.optimizedImageview;
+        ImageView transformImageview = binding.optimizationOptimizedImageview;
         Glide.with(this).load(URL).into(transformImageview);
     }
 
