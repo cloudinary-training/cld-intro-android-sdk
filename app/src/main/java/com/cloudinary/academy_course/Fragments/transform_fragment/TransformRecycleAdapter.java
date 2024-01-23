@@ -73,7 +73,7 @@ public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolde
                 itemViewBinding.imageCellTitle.setText("Sharpen");
                  break;
             case 1:
-                itemViewBinding.imageCellTitle.setText("Greyscale");
+                itemViewBinding.imageCellTitle.setText("Grayscale");
                 break;
             case 2:
                 itemViewBinding.imageCellTitle.setText("Cartooinfy");
