@@ -5,4 +5,5 @@
     <color name="main">#FF20242D</color>
     <color name="main_with_alpha">#AA20242D</color>
     <color name="surface">#FF3F475A</color>
+    <color name="primary">#FF4698F7 </color>
 </resources>

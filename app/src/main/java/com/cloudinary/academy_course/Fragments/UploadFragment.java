@@ -1,7 +1,11 @@
 package com.cloudinary.academy_course.Fragments;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +30,8 @@ public class UploadFragment extends Fragment {
 
     private UploadFragmentBinding binding;
 
+    private static final int PICK_IMAGE_REQUEST = 12345;
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -47,13 +53,21 @@ public class UploadFragment extends Fragment {
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadImage();
+                openGallery();
             }
         });
     }
 
-    private void uploadImage() {
-        Uri fileUri = Uri.parse("android.resource://"+getActivity().getPackageName()+"/drawable/butterfly");
+    private void openGallery() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+        intent.setType("image/*");
+
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
+    private void uploadImage(Uri fileUri) {
+//        Uri fileUri = Uri.parse("android.resource://"+getActivity().getPackageName()+"/drawable/butterfly");
         String requestId = MediaManager.get().upload(fileUri)
                 .unsigned("unsigned-image")
                 .callback(new UploadCallback() {
@@ -69,6 +83,7 @@ public class UploadFragment extends Fragment {
 
                     @Override
                     public void onSuccess(String requestId, Map resultData) {
+                        binding.uploadProgressbar.setVisibility(View.INVISIBLE);
                         String publicId = (String) resultData.get("public_id");
                         Log.d("Academy Course", "completed!!");
                         setImageView(publicId);
@@ -101,7 +116,16 @@ public class UploadFragment extends Fragment {
         Glide.with(this).load(URL).into(uploadImageview);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
+            Uri selectedImageUri = data.getData();
+            uploadImage(selectedImageUri);
+            binding.uploadProgressbar.setVisibility(View.VISIBLE);
+        }
+    }
 }
 
 
