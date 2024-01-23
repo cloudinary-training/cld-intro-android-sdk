@@ -8,8 +8,6 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -20,11 +18,10 @@ import java.util.Arrays;
 public class TransformFragment extends Fragment implements TransformRecycleClick {
 
     private TransformFragmentBinding binding;
-    private RecyclerView recyclerView;
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
@@ -51,7 +48,7 @@ public class TransformFragment extends Fragment implements TransformRecycleClick
     }
 
     private void initRecycleView() {
-        recyclerView = binding.transformRecyclerView;
+        RecyclerView recyclerView = binding.transformRecyclerView;
         TransformRecycleAdapter adapter = new TransformRecycleAdapter(this, Arrays.asList("sample","sample", "sample", "sample"));
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setAdapter(adapter);

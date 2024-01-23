@@ -10,17 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.cloudinary.Transformation;
-import com.cloudinary.academy_course.R;
 import com.cloudinary.academy_course.databinding.ItemImageBinding;
-import com.cloudinary.android.MediaManager;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
-interface TransformRecycleClick {
-    void itemClicked(String url);
-}
 
 public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolder> {
     private final List<String> imagePublicIds; // Replace with your data source
@@ -29,7 +21,7 @@ public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolde
 
     private Context context;
 
-    private TransformRecycleClick delegate;
+    private final TransformRecycleClick delegate;
 
     public TransformRecycleAdapter(TransformRecycleClick delegate, List<String> imagePublicIds) {
         this.delegate = delegate;

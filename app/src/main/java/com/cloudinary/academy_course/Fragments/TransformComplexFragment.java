@@ -8,14 +8,17 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.cloudinary.Transformation;
+import com.cloudinary.academy_course.Fragments.transform_fragment.TransformRecycleAdapter;
+import com.cloudinary.academy_course.Fragments.transform_fragment.TransformRecycleClick;
 import com.cloudinary.academy_course.databinding.TransformComplexFragmentBinding;
-import com.cloudinary.android.MediaManager;
-import com.cloudinary.transformation.TextLayer;
 
-public class TransformComplexFragment extends Fragment {
+import java.util.Arrays;
+
+public class TransformComplexFragment extends Fragment implements TransformRecycleClick  {
 
     private TransformComplexFragmentBinding binding;
 
@@ -32,7 +35,8 @@ public class TransformComplexFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setImageView("cheetah");
+        setMainImageView("https://res.cloudinary.com/adimizrahi2/image/upload/butterfly.jpg");
+        initRecycleView();
     }
 
     @Override
@@ -41,21 +45,21 @@ public class TransformComplexFragment extends Fragment {
         binding = null;
     }
 
-
-    private void setImageView(String publicId) {
-        String URL = MediaManager.get().url().transformation(new Transformation()
-                .effect("cartoonify").chain()
-                .radius("max").chain()
-                .effect("outline:100").color("lightgreen").chain()
-                .background("lightblue").chain()
-                .height(300).crop("scale")).generate(publicId);
-
-        ImageView transformComplexImageview = binding.transformComplexImageview;
-        Glide.with(this).load(URL).into(transformComplexImageview);
-
-
-
-
+    private void setMainImageView(String url) {
+        ImageView imageView = binding.complexTransformMainImage;
+        Glide.with(getActivity()).load(url).into(imageView);
     }
+
+    private void initRecycleView() {
+        RecyclerView recyclerView = binding.complexTransformRecyclerView;
+        TransformRecycleAdapter adapter = new TransformRecycleAdapter(this, Arrays.asList("sample","sample", "sample", "sample"));
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void itemClicked(String url) {
+        setMainImageView(url);
+    }
+
 
 }
