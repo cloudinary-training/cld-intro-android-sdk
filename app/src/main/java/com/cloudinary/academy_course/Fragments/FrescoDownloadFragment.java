@@ -46,7 +46,7 @@ public class FrescoDownloadFragment extends Fragment {
     private void setImageViewWithFrescoIntegration() {
         MediaManager.get().setDownloadRequestBuilderFactory(new FrescoDownloadRequestBuilderFactory());
         SimpleDraweeView imageView = binding.frescoDownloadImageview;
-        MediaManager.get().download(getActivity()).load(MediaManager.get().url().generate("sample")).into(imageView);;
+        MediaManager.get().download(getActivity()).load("https://res.cloudinary.com/adimizrahi2/image/upload/v1705927762/butterfly.jpg").into(imageView);;
     }
 
 }

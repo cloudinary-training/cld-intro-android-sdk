@@ -45,7 +45,7 @@ public class GlideIntegrationFragment extends Fragment {
     private void setImageViewWithGlideIntegration() {
         ImageView imageView = binding.glideIntegrationImageview;
         GlideApp.with(imageView)
-                .load(new CloudinaryRequest.Builder("sample")
+                .load(new CloudinaryRequest.Builder("cheetah")
                         .transformation(new Transformation().effect("blur"))
                         .responsive(ResponsiveUrl.Preset.AUTO_FILL)
                         .build())

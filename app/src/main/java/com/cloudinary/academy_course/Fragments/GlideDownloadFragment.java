@@ -44,7 +44,7 @@ public class GlideDownloadFragment extends Fragment {
     private void setImageViewWithGlideIntegration() {
         MediaManager.get().setDownloadRequestBuilderFactory(new GlideDownloadRequestBuilderFactory());
         ImageView imageView = binding.glideDownloadImageview;
-        MediaManager.get().download(getActivity()).load(MediaManager.get().url().generate("sample.jpg")).into(imageView);
+        MediaManager.get().download(getActivity()).load("https://res.cloudinary.com/adimizrahi2/image/upload/v1705927762/butterfly.jpg").into(imageView);
     }
 
 }
