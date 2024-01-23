@@ -56,7 +56,7 @@ public class UploadWidgetFragment extends Fragment {
     }
 
     private void setUploadButton() {
-        Button uploadButton = binding.uploadButton;
+        Button uploadButton = binding.uploadWidgetButton;
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +67,7 @@ public class UploadWidgetFragment extends Fragment {
 
     private void openUploadWidget() {
         UploadWidget.startActivity(getActivity(), UPLOAD_WIDGET_CODE);
+        binding.uploadWidgetProgressbar.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -92,6 +93,7 @@ public class UploadWidgetFragment extends Fragment {
                 ImageView uploadWidgetImageview = binding.uploadWidgetImageview;
                 String secureUrl = (String) resultData.get("secure_url");
                 Glide.with(getActivity()).load(secureUrl).into(uploadWidgetImageview);
+                binding.uploadWidgetProgressbar.setVisibility(View.INVISIBLE);
 
             }
 
