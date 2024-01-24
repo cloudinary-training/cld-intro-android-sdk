@@ -1,5 +1,6 @@
 package com.cloudinary.academy_course.Fragments;
 
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,11 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
+import com.cloudinary.academy_course.R;
+import com.cloudinary.academy_course.Utils.Utils;
 import com.cloudinary.academy_course.databinding.PreprocessFragmentBinding;
 import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
@@ -53,17 +59,22 @@ public class PreProcessingFragment extends Fragment {
 
     private void setOriginalImage() {
         ImageView originalImageView = binding.preprocessingOriginalImageview;
-        Glide.with(this).load("https://res.cloudinary.com/adimizrahi2/image/upload/v1705927762/butterfly.jpg").into(originalImageView);
+        originalImageView.setImageResource(R.drawable.coffee_with_a_view);
+
+        TextView originalTextView = binding.preprocessingOriginalTextview;
+        String imageDimensions = Utils.getImageWidhtAndHeightString(originalImageView.getDrawable());
+        String imageSize = Utils.getImageSizeString(originalImageView.getDrawable());
+        originalTextView.setText(imageDimensions + " " + imageSize);
     }
 
     private void preProcessImage() {
-        Uri fileUri = Uri.parse("android.resource://"+getActivity().getPackageName()+"/drawable/butterfly");
+        Uri fileUri = Uri.parse("android.resource://"+getActivity().getPackageName()+"/drawable/coffee_with_a_view");
         String requestId = MediaManager.get().upload(fileUri)
                 .unsigned("unsigned-image")
                 .preprocess(new ImagePreprocessChain()
-                        .loadWith(new BitmapDecoder(200, 200))
-                        .addStep(new Limit(200, 200))
-                        .addStep(new DimensionsValidator(10,10,200,200))
+                        .loadWith(new BitmapDecoder(1000, 1000))
+                        .addStep(new Limit(1000, 1000))
+                        .addStep(new DimensionsValidator(10,10,1000,1000))
                         .saveWith(new BitmapEncoder(BitmapEncoder.Format.JPEG, 80)))
                 .callback(new UploadCallback() {
                     @Override
@@ -98,7 +109,22 @@ public class PreProcessingFragment extends Fragment {
     private void setImageView(String publicId) {
         String URL = MediaManager.get().url().generate(publicId);
         ImageView uploadImageview = binding.preprocessingOptimizedImageview;
-        Glide.with(this).load(URL).into(uploadImageview);
+        Glide.with(this)
+                .asBitmap()
+                .load(URL)
+                .into(new SimpleTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap bitmap, Transition<? super Bitmap> transition) {
+                        int bytes = bitmap.getByteCount();
+
+                        double megabytes = bytes / (1024.0 * 1024.0);
+
+                        uploadImageview.setImageBitmap(bitmap);
+                        String imageDimensions = Utils.getImageWidhtAndHeightString(uploadImageview.getDrawable());
+                        String imageSize = Utils.getImageSizeString(uploadImageview.getDrawable());
+                        binding.preprocessingOptimizedTextview.setText(imageDimensions + " " + imageSize);
+                    }
+                });
     }
 
 }

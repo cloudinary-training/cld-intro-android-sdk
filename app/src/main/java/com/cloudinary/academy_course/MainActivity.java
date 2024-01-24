@@ -12,22 +12,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.cloudinary.academy_course.Fragments.UploadWidgetFragment;
 import com.cloudinary.academy_course.Fragments.WelcomeFragment;
 import com.cloudinary.academy_course.NavigationView.NavigationViewListener;
 import com.cloudinary.academy_course.databinding.ActivityMainBinding;
-import com.cloudinary.academy_course.utils.Utils;
+import com.cloudinary.academy_course.Utils.Utils;
 import com.cloudinary.android.MediaManager;
-import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.android.material.navigation.NavigationView;
-
-import android.view.Menu;
-import android.view.MenuItem;
 
 import java.util.HashMap;
 import java.util.List;

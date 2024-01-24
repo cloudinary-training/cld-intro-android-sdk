@@ -14,7 +14,7 @@ import android.view.WindowManager;
 import androidx.navigation.ui.AppBarConfiguration;
 
 import com.cloudinary.academy_course.databinding.ActivitySplashBinding;
-import com.cloudinary.academy_course.utils.Utils;
+import com.cloudinary.academy_course.Utils.Utils;
 
 public class InitialActivity extends AppCompatActivity {
 

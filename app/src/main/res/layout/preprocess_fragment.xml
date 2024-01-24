@@ -21,8 +21,8 @@
             android:layout_height="match_parent"
             android:layout_margin="8dp"
             android:padding="8dp"
-            android:scaleType="center"
-            android:src="@drawable/butterfly" />
+            android:scaleType="fitCenter"
+           />
 
         <TextView
             android:id="@+id/preprocessing_original_textview"
@@ -30,7 +30,6 @@
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:padding="8dp"
-            android:text="486x300 - 1MB"
             android:textAlignment="center"
             android:background="@color/main_with_alpha"
             android:layout_alignTop="@id/preprocessing_original_imageview"
@@ -48,8 +47,8 @@
             android:layout_height="match_parent"
             android:layout_margin="8dp"
             android:padding="8dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/butterfly" />
+            android:scaleType="fitCenter"
+            />
 
         <TextView
             android:id="@+id/preprocessing_optimized_textview"
@@ -57,7 +56,6 @@
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:padding="8dp"
-            android:text="486x300 - 1MB"
             android:textAlignment="center"
             android:background="@color/main_with_alpha"
             android:layout_alignTop="@id/preprocessing_optimized_imageview"
