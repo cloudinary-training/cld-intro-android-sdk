@@ -3,69 +3,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item android:title="Delivery">
+    <item android:title="@string/delivery">
     <menu>
         <item
             android:id="@+id/nav_transform"
             android:icon="@drawable/transform_white"
-            android:title="Transform" />
+            android:title="@string/transform" />
         <item
             android:id="@+id/nav_complex_transform"
             android:icon="@drawable/transform_white"
-            android:title="Complex Transform" />
+            android:title="@string/complex_transform" />
         <item
             android:id="@+id/nav_optimization"
             android:icon="@drawable/optimize_white"
-            android:title="Optimization" />
+            android:title="@string/optimization" />
     </menu>
     </item>
 
-    <item android:title="Upload">
+    <item android:title="@string/upload">
         <menu>
             <item
                 android:id="@+id/nav_upload"
                 android:icon="@drawable/upload_thin_white"
-                android:title="Upload" />
+                android:title="@string/upload" />
             <item
                 android:id="@+id/nav_preprocessing"
                 android:icon="@drawable/upload_thin_white"
-                android:title="Pre Processing Image"/>
+                android:title="@string/pre_processing_image"/>
         </menu>
     </item>
-    <item android:title="Download">
+    <item android:title="@string/download">
         <menu>
             <item
                 android:id="@+id/nav_glide_download"
                 android:icon="@drawable/download_thin_white"
-                android:title="Glide"/>
+                android:title="@string/glide"/>
             <item
                 android:id="@+id/nav_picasso_download"
                 android:icon="@drawable/download_thin_white"
-                android:title="Picasso"/>
+                android:title="@string/picasso"/>
             <item
                 android:id="@+id/nav_fresco_download"
                 android:icon="@drawable/download_thin_white"
-                android:title="Fresco"/>
+                android:title="@string/fresco"/>
         </menu>
     </item>
-    <item android:title="Download Integration">
+    <item android:title="@string/download_integration">
         <menu>
             <item
                 android:id="@+id/nav_glide_integration"
                 android:icon="@drawable/download_thin_white"
-                android:title="Glide Integration"/>
+                android:title="@string/glide_integration"/>
         </menu>
     </item>
-    <item android:title="UI">
+    <item android:title="@string/ui">
         <menu>
             <item
                 android:id="@+id/nav_upload_widget"
                 android:icon="@drawable/upload_thin_white"
-                android:title="Upload Widget"/>
+                android:title="@string/upload_widget"/>
             <item
                 android:id="@+id/nav_video_player"
                 android:icon="@drawable/video_white"
-                android:title="Video Player"/>
+                android:title="@string/video_player"/>
         </menu>
     </item>
 

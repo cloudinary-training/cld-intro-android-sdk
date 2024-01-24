@@ -17,5 +17,20 @@
     <string name="welcome_large_upload">Welcome To Large Upload Example</string>
     <string name="title">Title</string>
     <string name="open_gallery">Open Gallery</string>
+    <string name="delivery">Delivery</string>
+    <string name="transform">Transform</string>
+    <string name="complex_transform">Complex Transform</string>
+    <string name="optimization">Optimization</string>
+    <string name="upload">Upload</string>
+    <string name="pre_processing_image">Pre Processing Image</string>
+    <string name="download">Download</string>
+    <string name="glide">Glide</string>
+    <string name="picasso">Picasso</string>
+    <string name="fresco">Fresco</string>
+    <string name="download_integration">Download Integration</string>
+    <string name="glide_integration">Glide Integration</string>
+    <string name="ui">UI</string>
+    <string name="upload_widget">Upload Widget</string>
+    <string name="video_player">Video Player</string>
 
 </resources>
