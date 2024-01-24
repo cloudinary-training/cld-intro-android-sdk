@@ -15,7 +15,7 @@ import com.cloudinary.academy_course.databinding.ItemImageBinding;
 import java.util.List;
 
 public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolder> {
-    private final List<String> imagePublicIds; // Replace with your data source
+    private final List<String> imageUrls; // Replace with your data source
 
     private ItemImageBinding itemViewBinding;
 
@@ -23,9 +23,9 @@ public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolde
 
     private final TransformRecycleClick delegate;
 
-    public TransformRecycleAdapter(TransformRecycleClick delegate, List<String> imagePublicIds) {
+    public TransformRecycleAdapter(TransformRecycleClick delegate, List<String> imageUrls) {
         this.delegate = delegate;
-        this.imagePublicIds = imagePublicIds;
+        this.imageUrls = imageUrls;
     }
 
     @NonNull
@@ -38,7 +38,7 @@ public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        String imagePublicId = imagePublicIds.get(position);
+        String imagePublicId = imageUrls.get(position);
 
         // Load the image into the ImageView using a library like Picasso or Glide
         setText(holder.getBindingAdapterPosition());
@@ -47,22 +47,7 @@ public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolde
         // Set click listener
         holder.imageView.setOnClickListener(view -> {
             if (delegate != null) {
-                switch (holder.getBindingAdapterPosition()) {
-                    case 0:
-                        delegate.itemClicked("https://res.cloudinary.com/adimizrahi2/image/upload/e_sharpen:400/butterfly.jpg");
-                        break;
-                    case 1:
-                        delegate.itemClicked("https://res.cloudinary.com/adimizrahi2/image/upload/e_grayscale/butterfly.jpg");
-                        break;
-                    case 2:
-                        delegate.itemClicked("https://res.cloudinary.com/adimizrahi2/image/upload/e_cartoonify/butterfly.jpg");
-                        break;
-                    case 3:
-                        delegate.itemClicked("https://res.cloudinary.com/adimizrahi2/image/upload/e_sepia/butterfly.jpg");
-                        break;
-                    default:
-                        break;
-                }
+                delegate.itemClicked(imageUrls.get(position));
             }
         });
     }
@@ -70,16 +55,16 @@ public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolde
     private void setText(int position) {
         switch (position) {
             case 0:
-                itemViewBinding.imageCellTitle.setText("Sharpen");
+                itemViewBinding.imageCellTitle.setText("Grayscale");
                  break;
             case 1:
-                itemViewBinding.imageCellTitle.setText("Grayscale");
+                itemViewBinding.imageCellTitle.setText("Sharpen");
                 break;
             case 2:
-                itemViewBinding.imageCellTitle.setText("Cartooinfy");
+                itemViewBinding.imageCellTitle.setText("Vignette");
                 break;
             case 3:
-                itemViewBinding.imageCellTitle.setText("Sepia");
+                itemViewBinding.imageCellTitle.setText("Tint");
                 break;
             default:
                 break;
@@ -88,27 +73,11 @@ public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolde
 
     @Override
     public int getItemCount() {
-        return imagePublicIds.size();
+        return imageUrls.size();
     }
 
     private void setImageView(int position) {
-        String url = null;
-        switch (position) {
-            case 0:
-                url = "https://res.cloudinary.com/adimizrahi2/image/upload/e_sharpen:400/butterfly.jpg";
-                break;
-            case 1:
-                url = "https://res.cloudinary.com/adimizrahi2/image/upload/e_grayscale/butterfly.jpg";
-                break;
-            case 2:
-                url = "https://res.cloudinary.com/adimizrahi2/image/upload/e_cartoonify/butterfly.jpg";
-                break;
-            case 3:
-                url = "https://res.cloudinary.com/adimizrahi2/image/upload/e_sepia/butterfly.jpg";
-                break;
-            default:
-                break;
-        }
+        String url = imageUrls.get(position);
         ImageView transformImageview = itemViewBinding.itemImageview;
         Glide.with(context).load(url).into(transformImageview);
     }
