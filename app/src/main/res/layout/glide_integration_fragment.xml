@@ -10,7 +10,7 @@
 
     <ImageView
         android:id="@+id/glide_integration_imageview"
-        android:background="@color/black"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="8dp"

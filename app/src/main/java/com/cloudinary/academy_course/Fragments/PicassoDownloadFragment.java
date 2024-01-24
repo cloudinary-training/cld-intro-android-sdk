@@ -42,7 +42,7 @@ public class PicassoDownloadFragment extends Fragment {
     private void setImageViewWithPicassoIntegration() {
         MediaManager.get().setDownloadRequestBuilderFactory(new PicassoDownloadRequestBuilderFactory());
         ImageView imageView = binding.picassoDownloadImageview;
-        MediaManager.get().download(getActivity()).load("https://res.cloudinary.com/adimizrahi2/image/upload/v1705927762/butterfly.jpg").into(imageView);;
+        MediaManager.get().download(getActivity()).load(MediaManager.get().url().generate("aerial")).into(imageView);
     }
 
 }
