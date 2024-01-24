@@ -7,15 +7,15 @@
     <menu>
         <item
             android:id="@+id/nav_transform"
-            android:icon="@drawable/transform"
+            android:icon="@drawable/transform_white"
             android:title="Transform" />
         <item
             android:id="@+id/nav_complex_transform"
-            android:icon="@drawable/transform"
+            android:icon="@drawable/transform_white"
             android:title="Complex Transform" />
         <item
             android:id="@+id/nav_optimization"
-            android:icon="@drawable/transform"
+            android:icon="@drawable/optimize_white"
             android:title="Optimization" />
     </menu>
     </item>
@@ -24,11 +24,11 @@
         <menu>
             <item
                 android:id="@+id/nav_upload"
-                android:icon="@drawable/upload"
+                android:icon="@drawable/upload_thin_white"
                 android:title="Upload" />
             <item
                 android:id="@+id/nav_preprocessing"
-                android:icon="@drawable/upload"
+                android:icon="@drawable/upload_thin_white"
                 android:title="Pre Processing Image"/>
         </menu>
     </item>
@@ -36,15 +36,15 @@
         <menu>
             <item
                 android:id="@+id/nav_glide_download"
-                android:icon="@drawable/upload"
+                android:icon="@drawable/download_thin_white"
                 android:title="Glide"/>
             <item
                 android:id="@+id/nav_picasso_download"
-                android:icon="@drawable/upload"
+                android:icon="@drawable/download_thin_white"
                 android:title="Picasso"/>
             <item
                 android:id="@+id/nav_fresco_download"
-                android:icon="@drawable/upload"
+                android:icon="@drawable/download_thin_white"
                 android:title="Fresco"/>
         </menu>
     </item>
@@ -52,7 +52,7 @@
         <menu>
             <item
                 android:id="@+id/nav_glide_integration"
-                android:icon="@drawable/upload"
+                android:icon="@drawable/download_thin_white"
                 android:title="Glide Integration"/>
         </menu>
     </item>
@@ -60,11 +60,11 @@
         <menu>
             <item
                 android:id="@+id/nav_upload_widget"
-                android:icon="@drawable/upload"
+                android:icon="@drawable/upload_thin_white"
                 android:title="Upload Widget"/>
             <item
                 android:id="@+id/nav_video_player"
-                android:icon="@drawable/upload"
+                android:icon="@drawable/video_white"
                 android:title="Video Player"/>
         </menu>
     </item>
