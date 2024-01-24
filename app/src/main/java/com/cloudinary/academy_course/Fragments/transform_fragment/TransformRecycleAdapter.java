@@ -38,7 +38,6 @@ public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        String imagePublicId = imageUrls.get(position);
 
         // Load the image into the ImageView using a library like Picasso or Glide
         setText(holder.getBindingAdapterPosition());

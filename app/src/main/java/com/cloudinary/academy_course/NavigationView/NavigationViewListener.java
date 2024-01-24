@@ -19,6 +19,7 @@ import com.cloudinary.academy_course.Fragments.PreProcessingFragment;
 import com.cloudinary.academy_course.Fragments.TransformComplexFragment;
 import com.cloudinary.academy_course.Fragments.UploadFragment;
 import com.cloudinary.academy_course.Fragments.UploadWidgetFragment;
+import com.cloudinary.academy_course.Fragments.VideoFeed.VideoFeedFragment;
 import com.cloudinary.academy_course.Fragments.VideoPlayerFragment;
 import com.cloudinary.academy_course.R;
 import com.cloudinary.academy_course.Fragments.transform_fragment.TransformFragment;
@@ -59,6 +60,8 @@ public class NavigationViewListener implements NavigationView.OnNavigationItemSe
             fragment = new UploadWidgetFragment();
         } else if(id == R.id.nav_video_player) {
             fragment = new VideoPlayerFragment();
+        } else if(id == R.id.nav_video_feed) {
+            fragment = new VideoFeedFragment();
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left);
