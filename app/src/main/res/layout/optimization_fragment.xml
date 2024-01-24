@@ -19,9 +19,12 @@
             android:id="@+id/optimization_original_imageview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:padding="8dp"
-            android:scaleType="center"
+            android:scaleType="fitCenter"
             android:src="@drawable/butterfly" />
 
         <TextView
@@ -49,7 +52,7 @@
         android:layout_height="match_parent"
         android:layout_margin="8dp"
         android:padding="8dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:src="@drawable/butterfly" />
 
     <TextView
