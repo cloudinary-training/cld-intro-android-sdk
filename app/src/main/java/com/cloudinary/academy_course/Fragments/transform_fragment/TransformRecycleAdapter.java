@@ -54,15 +54,18 @@ public class TransformRecycleAdapter extends RecyclerView.Adapter<ImageViewHolde
     private void setText(int position) {
         switch (position) {
             case 0:
+                itemViewBinding.imageCellTitle.setText("Original");
+                break;
+            case 1:
                 itemViewBinding.imageCellTitle.setText("Grayscale");
                  break;
-            case 1:
+            case 2:
                 itemViewBinding.imageCellTitle.setText("Sharpen");
                 break;
-            case 2:
+            case 3:
                 itemViewBinding.imageCellTitle.setText("Vignette");
                 break;
-            case 3:
+            case 4:
                 itemViewBinding.imageCellTitle.setText("Tint");
                 break;
             default:
