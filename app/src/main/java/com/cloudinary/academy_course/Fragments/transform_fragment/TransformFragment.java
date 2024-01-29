@@ -60,11 +60,11 @@ public class TransformFragment extends Fragment implements TransformRecycleClick
 
     private List<String> buildTransformUrls() {
         String lorikeetOriginalUrl = MediaManager.get().url().generate("lorikeet");
+        String lorikeetSharpenUrl = MediaManager.get().url().transformation(new Transformation().effect("sharpen:400")).generate("lorikeet");
         String lorikeetGrayscaleUrl = MediaManager.get().url().transformation(new Transformation().effect("grayscale")).generate("lorikeet");
-        String lorikeetSharepnUrl = MediaManager.get().url().transformation(new Transformation().effect("sharpen:400")).generate("lorikeet");
-        String lorikeetVignetteUrl = MediaManager.get().url().transformation(new Transformation().effect("vignette")).generate("lorikeet");
-        String lorikeetTintUrl = MediaManager.get().url().transformation(new Transformation().effect("tint:50")).generate("lorikeet");
-        return Arrays.asList(lorikeetOriginalUrl, lorikeetGrayscaleUrl, lorikeetSharepnUrl, lorikeetVignetteUrl, lorikeetTintUrl);
+        String lorikeetBlurUrl = MediaManager.get().url().transformation(new Transformation().effect("blur:500")).generate("lorikeet");
+        String lorikeetColorizeUrl = MediaManager.get().url().transformation(new Transformation().color("blue").effect("colorize:20")).generate("lorikeet");
+        return Arrays.asList(lorikeetOriginalUrl, lorikeetSharpenUrl, lorikeetGrayscaleUrl, lorikeetBlurUrl, lorikeetColorizeUrl);
     }
 
     @Override
