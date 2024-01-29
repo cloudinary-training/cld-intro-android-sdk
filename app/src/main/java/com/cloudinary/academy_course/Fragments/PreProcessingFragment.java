@@ -1,6 +1,7 @@
 package com.cloudinary.academy_course.Fragments;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +29,7 @@ import com.cloudinary.android.preprocess.DimensionsValidator;
 import com.cloudinary.android.preprocess.ImagePreprocessChain;
 import com.cloudinary.android.preprocess.Limit;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Map;
 
 public class PreProcessingFragment extends Fragment {
@@ -62,9 +64,22 @@ public class PreProcessingFragment extends Fragment {
         originalImageView.setImageResource(R.drawable.coffee_with_a_view);
 
         TextView originalTextView = binding.preprocessingOriginalTextview;
+
+        originalImageView.setDrawingCacheEnabled(true);
+
+        Bitmap bitmap = ((BitmapDrawable)originalImageView.getDrawable()).getBitmap();
+
+        originalImageView.setDrawingCacheEnabled(false);
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        int fileLength = byteArray.length;
+
         String imageDimensions = Utils.getImageWidhtAndHeightString(originalImageView.getDrawable());
-        String imageSize = Utils.getImageSizeString(originalImageView.getDrawable());
+        String imageSize = Utils.getImageSize(fileLength);
         originalTextView.setText(imageDimensions + " " + imageSize);
+
     }
 
     private void preProcessImage() {
@@ -116,12 +131,21 @@ public class PreProcessingFragment extends Fragment {
                     @Override
                     public void onResourceReady(@NonNull Bitmap bitmap, Transition<? super Bitmap> transition) {
                         int bytes = bitmap.getByteCount();
-
                         double megabytes = bytes / (1024.0 * 1024.0);
 
-                        uploadImageview.setImageBitmap(bitmap);
-                        String imageDimensions = Utils.getImageWidhtAndHeightString(uploadImageview.getDrawable());
-                        String imageSize = Utils.getImageSizeString(uploadImageview.getDrawable());
+                        // Get the length of the bitmap's compressed data in bytes
+                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                        byte[] byteArray = stream.toByteArray();
+                        int fileLength = byteArray.length;
+
+                        // Now 'fileLength' represents the length of the image file in bytes
+
+                        ImageView imageView = binding.preprocessingOptimizedImageview;
+                        imageView.setImageBitmap(bitmap);
+
+                        String imageDimensions = Utils.getImageWidhtAndHeightString(imageView.getDrawable());
+                        String imageSize = Utils.getImageSize(fileLength);
                         binding.preprocessingOptimizedTextview.setText(imageDimensions + " " + imageSize);
                     }
                 });

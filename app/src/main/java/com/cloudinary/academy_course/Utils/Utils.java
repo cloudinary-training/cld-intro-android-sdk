@@ -40,32 +40,8 @@ public class Utils {
         return width + "x" + height;
     }
 
-    public static String getImageSizeString(Drawable drawable) {
-        Bitmap bitmap;
-
-        if (drawable instanceof BitmapDrawable) {
-            bitmap = ((BitmapDrawable) drawable).getBitmap();
-        } else {
-            // If the drawable is not a BitmapDrawable, create a temporary Bitmap and draw the drawable onto it
-            int width = drawable.getIntrinsicWidth();
-            int height = drawable.getIntrinsicHeight();
-
-            // Handle zero or negative dimensions
-            if (width <= 0 || height <= 0) {
-                return "Invalid Size";
-            }
-
-            bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(bitmap);
-            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-            drawable.draw(canvas);
-        }
-
-        // Calculate the size of the Bitmap in bytes
-        int bytes = bitmap.getByteCount();
-
-        // Convert bytes to megabytes
-        double megabytes = bytes / (1024.0 * 1024.0);
+    public static String getImageSize(int size) {
+        double megabytes = size / (1024.0 * 1024.0);
 
         return String.format("%.2f MB", megabytes);
     }

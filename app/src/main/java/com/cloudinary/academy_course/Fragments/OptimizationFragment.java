@@ -22,6 +22,8 @@ import com.cloudinary.academy_course.databinding.OptimizationFragmentBinding;
 import com.cloudinary.academy_course.databinding.TransformFragmentBinding;
 import com.cloudinary.android.MediaManager;
 
+import java.io.ByteArrayOutputStream;
+
 public class OptimizationFragment extends Fragment {
 
     private OptimizationFragmentBinding binding;
@@ -58,19 +60,28 @@ public class OptimizationFragment extends Fragment {
                     @Override
                     public void onResourceReady(@NonNull Bitmap bitmap, Transition<? super Bitmap> transition) {
                         int bytes = bitmap.getByteCount();
-
                         double megabytes = bytes / (1024.0 * 1024.0);
+
+                        // Get the length of the bitmap's compressed data in bytes
+                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                        byte[] byteArray = stream.toByteArray();
+                        int fileLength = byteArray.length;
+
+                        // Now 'fileLength' represents the length of the image file in bytes
+
                         ImageView imageView = binding.optimizationOriginalImageview;
                         imageView.setImageBitmap(bitmap);
+
                         String imageDimensions = Utils.getImageWidhtAndHeightString(imageView.getDrawable());
-                        String imageSize = Utils.getImageSizeString(imageView.getDrawable());
+                        String imageSize = Utils.getImageSize(fileLength);
                         binding.optimizationOriginalTextview.setText(imageDimensions + " " + imageSize);
                     }
                 });
     }
 
     private void setOptimizationImageView(String publicId) {
-        String url = MediaManager.get().url().transformation(new Transformation().crop("scale").width(1000).fetchFormat("avif").quality("auto").dpr("auto")).generate(publicId);
+        String url = MediaManager.get().url().transformation(new Transformation().crop("scale").width(800).fetchFormat("avif").quality("auto").dpr("auto")).generate(publicId);
         Glide.with(this)
                 .asBitmap()
                 .load(url)
@@ -78,12 +89,21 @@ public class OptimizationFragment extends Fragment {
                     @Override
                     public void onResourceReady(@NonNull Bitmap bitmap, Transition<? super Bitmap> transition) {
                         int bytes = bitmap.getByteCount();
-
                         double megabytes = bytes / (1024.0 * 1024.0);
+
+                        // Get the length of the bitmap's compressed data in bytes
+                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                        byte[] byteArray = stream.toByteArray();
+                        int fileLength = byteArray.length;
+
+                        // Now 'fileLength' represents the length of the image file in bytes
+
                         ImageView imageView = binding.optimizationOptimizedImageview;
                         imageView.setImageBitmap(bitmap);
+
                         String imageDimensions = Utils.getImageWidhtAndHeightString(imageView.getDrawable());
-                        String imageSize = Utils.getImageSizeString(imageView.getDrawable());
+                        String imageSize = Utils.getImageSize(fileLength);
                         binding.optimizationOptimizedTextview.setText(imageDimensions + " " + imageSize);
                     }
                 });
