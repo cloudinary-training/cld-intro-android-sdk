@@ -45,7 +45,7 @@ public class VideoPlayerFragment extends Fragment {
     private void setVideoPlayer() {
         CldVideoPlayer player = null;
         try {
-            player = new CldVideoPlayer(getContext(), new URL("https://res.cloudinary.com/demo/video/upload/dog.mp4"));
+            player = new CldVideoPlayer(getContext(), new URL("https://res.cloudinary.com/jen-brissman/video/upload/v1669832004/glacier.mp4"));
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
