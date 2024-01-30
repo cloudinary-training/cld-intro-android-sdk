@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import com.cloudinary.Transformation;
 import com.cloudinary.academy_course.databinding.UploadWidgetFragmentBinding;
 import com.cloudinary.academy_course.databinding.VideoPlayerFragmentBinding;
+import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.cldvideoplayer.CldVideoPlayer;
 
 import java.net.MalformedURLException;
@@ -44,11 +45,8 @@ public class VideoPlayerFragment extends Fragment {
 
     private void setVideoPlayer() {
         CldVideoPlayer player = null;
-        try {
-            player = new CldVideoPlayer(getContext(), new URL("https://res.cloudinary.com/jen-brissman/video/upload/v1669832004/glacier.mp4"));
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
+        player = new CldVideoPlayer(getContext(),
+                (MediaManager.get().url().resourceType("video").transformation(new Transformation<>().quality("auto")).generate("glacier")));
         binding.playerView.setPlayer(player.getPlayer());
         player.getPlayer().play();
     }
