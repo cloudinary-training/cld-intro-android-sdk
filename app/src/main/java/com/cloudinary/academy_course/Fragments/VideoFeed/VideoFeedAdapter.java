@@ -2,6 +2,7 @@ package com.cloudinary.academy_course.Fragments.VideoFeed;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,13 +30,12 @@ import com.cloudinary.android.cldvideoplayer.CldVideoPlayer;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+
 @UnstableApi
-public class VideoFeedAdapter extends RecyclerView.Adapter {
+public class VideoFeedAdapter extends RecyclerView.Adapter<VideoFeedAdapter.VideoViewHolder> {
 
     private final List<String> videoUrls;
     private Context context;
-
-    VideoFeedItemBinding binding;
 
     public VideoFeedAdapter(Context context, List<String> videoUrls) {
         this.context = context;
@@ -56,38 +56,70 @@ public class VideoFeedAdapter extends RecyclerView.Adapter {
     @Override
     public VideoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
-        binding = VideoFeedItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        VideoFeedItemBinding binding = VideoFeedItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new VideoViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        PlayerView playerView = binding.playerView;
-
-        String videoUrl = videoUrls.get(position);
-        int screenHeight = getScreenHeight(context);
-
-        ViewGroup.LayoutParams layoutParams = playerView.getLayoutParams();
-        layoutParams.height = screenHeight;
-        playerView.setLayoutParams(layoutParams);
-
-        try {
-            CldVideoPlayer player = new CldVideoPlayer(playerView.getContext(), new URL(videoUrl));
-            player.getPlayer().setRepeatMode(Player.REPEAT_MODE_ALL);
-            playerView.setPlayer(player.getPlayer());
-
-            playerView.hideController();
-
-            playerView.setUseController(false);
-
-            player.getPlayer().play();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+    public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
+        holder.bind(position);
     }
 
     @Override
     public int getItemCount() {
         return videoUrls.size();
+    }
+
+    public class VideoViewHolder extends RecyclerView.ViewHolder {
+
+        private final VideoFeedItemBinding binding;
+        private CldVideoPlayer player;
+        private boolean isPlaying = false;
+
+        public VideoViewHolder(VideoFeedItemBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+            binding.playerView.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+                @Override
+                public void onViewAttachedToWindow(@NonNull View v) {
+                    if (player != null && !isPlaying) {
+                        player.getPlayer().play();
+                        isPlaying = true;
+                    }
+                }
+
+                @Override
+                public void onViewDetachedFromWindow(@NonNull View v) {
+                    if (player != null && isPlaying) {
+                        player.getPlayer().pause();
+                        isPlaying = false;
+                    }
+                }
+            });
+        }
+
+        public void bind(int position) {
+            PlayerView playerView = binding.playerView;
+
+            String videoUrl = videoUrls.get(position);
+            int screenHeight = getScreenHeight(context);
+
+            ViewGroup.LayoutParams layoutParams = playerView.getLayoutParams();
+            layoutParams.height = screenHeight;
+            playerView.setLayoutParams(layoutParams);
+
+            try {
+                player = new CldVideoPlayer(playerView.getContext(), new URL(videoUrl));
+                player.getPlayer().setRepeatMode(Player.REPEAT_MODE_ALL);
+                playerView.setPlayer(player.getPlayer());
+
+                playerView.hideController();
+
+                playerView.setUseController(false);
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
