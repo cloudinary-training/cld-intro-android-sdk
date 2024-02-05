@@ -33,5 +33,7 @@
     <string name="upload_widget">Upload Widget</string>
     <string name="video_player">Video Player</string>
     <string name="video_feed">Video Feed</string>
+    <string name="original">Original</string>
+    <string name="optimized">Optimized</string>
 
 </resources>

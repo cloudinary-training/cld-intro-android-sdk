@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
- <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        android:orientation="vertical"
-        tools:context=".Fragments.WelcomeFragment">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context=".Fragments.WelcomeFragment">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="0.5">
+        android:layout_weight="0.45">
 
         <!-- item_image.xml -->
         <ImageView
@@ -23,49 +23,122 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:padding="8dp"
+            android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:src="@drawable/butterfly" />
-
-        <TextView
-            android:id="@+id/optimization_original_textview"
+            />
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:layout_margin="8dp"
             android:padding="8dp"
-            android:text="486x300 - 1MB"
-            android:textAlignment="center"
-            android:background="@color/main_with_alpha"
-            android:layout_alignTop="@id/optimization_original_imageview"
-            android:layout_alignEnd="@id/optimization_original_imageview"/>
+            android:layout_alignBottom="@id/optimization_original_imageview"
+            android:layout_alignStart="@id/optimization_original_imageview"
+            android:background="@color/main_with_alpha">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textFontWeight="600"
+                android:text="@string/original"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/optimization_original_textview_format"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="JPG -"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:id="@+id/optimization_original_textview_dimensions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="2500 x 1667"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:id="@+id/optimization_original_textview_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="7MB"
+                android:textColor="@color/red_size"
+                android:textAlignment="center"
+                />
+        </LinearLayout>
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="0.5">
+        android:layout_weight="0.45">
 
-    <!-- item_image.xml -->
-    <ImageView
-        android:id="@+id/optimization_optimized_imageview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="8dp"
-        android:padding="8dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/butterfly" />
+        <ImageView
+            android:id="@+id/optimization_optimized_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            />
 
-    <TextView
-        android:id="@+id/optimization_optimized_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:padding="8dp"
-        android:text="486x300 - 1MB"
-        android:textAlignment="center"
-        android:background="@color/main_with_alpha"
-        android:layout_alignTop="@id/optimization_optimized_imageview"
-        android:layout_alignEnd="@id/optimization_optimized_imageview"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:layout_alignBottom="@id/optimization_optimized_imageview"
+            android:layout_alignStart="@id/optimization_optimized_imageview"
+            android:background="@color/main_with_alpha">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textFontWeight="600"
+                android:text="@string/optimized"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/optimization_optimized_textview_format"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="AVIF -"
+                    android:textAlignment="center"
+                    />
+                <TextView
+                    android:id="@+id/optimization_optimized_textview_dimensions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="2500 x 1667"
+                    android:textAlignment="center"
+                    />
+                <TextView
+                    android:id="@+id/optimization_optimized_textview_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="7MB"
+                    android:textColor="@color/green_size"
+                    android:textAlignment="center"
+                    />
+            </LinearLayout>
+        </LinearLayout>
     </RelativeLayout>
 
 </LinearLayout>
