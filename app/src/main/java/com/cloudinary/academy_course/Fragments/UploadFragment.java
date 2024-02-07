@@ -67,7 +67,7 @@ public class UploadFragment extends Fragment {
     }
 
     private void uploadImage(Uri fileUri) {
-//        Uri fileUri = Uri.parse("android.resource://"+getActivity().getPackageName()+"/drawable/butterfly");
+//         Uri fileUri = Uri.parse("android.resource://"+getActivity().getPackageName()+"/drawable/butterfly");
         String requestId = MediaManager.get().upload(fileUri)
                 .unsigned("unsigned-image")
                 .callback(new UploadCallback() {

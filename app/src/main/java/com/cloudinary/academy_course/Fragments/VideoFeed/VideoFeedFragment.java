@@ -40,8 +40,8 @@ public class VideoFeedFragment extends Fragment {
         List<String> videoUrls = new ArrayList<>();
         videoUrls.add(MediaManager.get().url().resourceType("video").transformation(new Transformation<>().quality("auto")).generate("backpack"));
         videoUrls.add(MediaManager.get().url().resourceType("video").transformation(new Transformation<>().quality("auto")).generate("test-assets/waterfall"));
-        videoUrls.add(MediaManager.get().url().resourceType("video").transformation(new Transformation<>().quality("auto")).generate("test-assets/crossing"));
-        videoUrls.add(MediaManager.get().url().resourceType("video").transformation(new Transformation<>().quality("auto")).generate("test-assets/kids-hiking"));
+        videoUrls.add(MediaManager.get().url().resourceType("video").transformation(new Transformation<>().quality("auto")).generate("cove"));
+        videoUrls.add(MediaManager.get().url().resourceType("video").transformation(new Transformation<>().quality("auto")).generate("kids-hiking"));
         VideoFeedAdapter videoFeedAdapter = new VideoFeedAdapter(requireContext(), videoUrls);
         recyclerView.setAdapter(videoFeedAdapter);
         return binding.getRoot();
