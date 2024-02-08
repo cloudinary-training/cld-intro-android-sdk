@@ -1,5 +1,5 @@
 # Introduction to Cloudinary's Android SDK
-This repository is used in conjunction with the Cloudinary Academy training course **Introduction to Cloudinary's Android SDK**.
+This repository is used in conjunction with the Cloudinary Academy training course, **Introduction to Cloudinary's Android SDK**.
 
 If you would like to take this xx minute course, you can enroll for free at [training.cloudinary.com](https://training.cloudinary.com).
 
