@@ -38,9 +38,9 @@ The Cloudinary Java SDK will run on Java 6 and any higher version. For purposes 
 
 ### IDE
 
-We present this content using [Android Studio](https://developer.android.com/studio)
+We'll be presenting this content using [Android Studio](https://developer.android.com/studio)
 
-You may import the Java code used into your favorite IDE. You'll find the `MainActivity.java` in repo in the folder `app/src/main/java/com/cloudinary/academy_course`.
+You may import the Java code used into your favorite IDE. You'll find the `MainActivity.java` in the repo in the folder `app/src/main/java/com/cloudinary/academy_course`.
 
 This is the entry point to static "runners" that contain code to help you upload, manage and transform your media.
 
@@ -49,11 +49,8 @@ This is the entry point to static "runners" that contain code to help you upload
 
 - Java 6 or greater, we are be using version 8 in the course
 - Java Download www.oracle.com/java/technologies/javase/javase-jdk8-downloads
-
-You can find [instructions for downloading and installing Java ](https://www.java.com/en/download/help/index_installing.html) for many environments.
-
 - Mac : brew install recommended https://brew.sh/
-
+- You can find [instructions for downloading and installing Java ](https://www.java.com/en/download/help/index_installing.html) for many environments.
 
 ### Verify your version of Java is 6+
 
