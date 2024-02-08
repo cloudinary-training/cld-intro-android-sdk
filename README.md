@@ -31,8 +31,7 @@ Course Topics:
 
 ---
 
-
-## Setup
+## Setup Environment
 
 ### Java
 The Cloudinary Java SDK will run on Java 6 and any higher version. For purposes of training, we are using **Java Version 8**.
@@ -48,7 +47,13 @@ This is the entry point to static "runners" that contain code to help you upload
 
 ### Install Java
 
+- Java 6 or greater, we are be using version 8 in the course
+- Java Download www.oracle.com/java/technologies/javase/javase-jdk8-downloads
+
 You can find [instructions for downloading and installing Java ](https://www.java.com/en/download/help/index_installing.html) for many environments.
+
+- Mac : brew install recommended https://brew.sh/
+
 
 ### Verify your version of Java is 6+
 
@@ -69,7 +74,15 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.311-b11, mixed mode)
 
 ### Providing Cloudinary Credentials
 
-You will need to [register for a free Cloudinary account](https://cloudinary.com/users/register/free) in order to work along with this training. It is recommended that you create a training account for this training to keep this work separate from any work you do in a production Cloudinary account.  You only need an email address that can be verified to set up this account.
+You will need to [register for a free Cloudinary account](https://cloudinary.com/users/register/free) in order to work along with this training.
+
+It is recommended that you create a training account for this training to keep this work separate from any work you do in a production Cloudinary account.
+
+You only need an email address that can be verified to set up this account.
+
+Navigate to:  [https://cloudinary.com/console](https://cloudinary.com/console)
+
+![cloudinary url](https://res.cloudinary.com/jen-brissman/image/upload/v1702021754/cld-url.png)
 
 Cloudinary provides 3 credentials for developers to use in interacting with SDK's and Widgets:
 
@@ -83,25 +96,6 @@ CLOUD_NAME and API_KEY can be revealed without creating any security issues, but
 ## Assets
 All local assets used in training, are located in the `cld-intro-android-sdk/app/src/main/res
 /drawable/` directory
-
-## Setup Environment
-
-### Install Java
-
-- Java 6 or greater, we are be using version 8 in the course
-- Java Download www.oracle.com/java/technologies/javase/javase-jdk8-downloads
-- Mac : brew install recommended https://brew.sh/
-
-
-### Cloudinary Credentials
-
-Sign up for free account or login.
-
-Navigate to:  [https://cloudinary.com/console](https://cloudinary.com/console)
-
-Once you have a Cloudinary account, you can access your CLOUDINARY_URL/API Environment Variable in your Dashboard, as shown below. This credential is comprised of all three of your credentals combined into one line of code. You’ll use the CLOUDINARY_URL to authenticate and get authorization to upload. You can easily copy the CLOUDINARY_URL into your clipboard by clicking on the clipboard icon.
-
-![cloudinary url](https://res.cloudinary.com/jen-brissman/image/upload/v1702021754/cld-url.png)
 
 ---
 ## Resources
