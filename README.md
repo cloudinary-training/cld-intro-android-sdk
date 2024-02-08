@@ -12,13 +12,13 @@ Course Topics:
   - Environment Setup
 - Upload
   - Upload
+  - Cloudinary Upload Widget
   - Pre Processing Image 
 - Delivery
   - Transformations
   - Complex Transformations
   - Optimizations
-- User Interface
-  - Upload Widget
+- Video
   - Cloudinary Native Video Player
   - Video Feed 
 - Download
