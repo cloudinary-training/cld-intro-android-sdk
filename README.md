@@ -1,5 +1,3 @@
-# cld-intro-mobile-java
-
 # Introduction to Cloudinary's Android SDK
 This repository is used in conjunction with the Cloudinary Academy training course **Introduction to Cloudinary's Android SDK**.
 
