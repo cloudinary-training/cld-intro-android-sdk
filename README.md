@@ -4,7 +4,7 @@ This repository is used in conjunction with the Cloudinary Academy training cour
 If you would like to take this xx minute course, you can enroll for free at [training.cloudinary.com](https://training.cloudinary.com).
 
 # Course Outline:
-The information below corresponds with the [slides](<>) used in [https://training.cloudinary.com/learn/course/<fill-in-later>]).
+The information below corresponds with the [slides](<>) used in **Introduction to Cloudinary's Android SDK**.
 
 Course Topics:
 - Introduction
