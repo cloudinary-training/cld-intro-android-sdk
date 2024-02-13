@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import com.cloudinary.Transformation;
 import com.cloudinary.academy_course.GlideApp;
 import com.cloudinary.academy_course.databinding.GlideIntegrationFragmentBinding;
-import com.cloudinary.academy_course.databinding.WelcomeFragmentBinding;
 import com.cloudinary.android.CloudinaryRequest;
 import com.cloudinary.android.ResponsiveUrl;
 
@@ -22,7 +21,7 @@ public class GlideIntegrationFragment extends Fragment {
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
@@ -51,5 +50,4 @@ public class GlideIntegrationFragment extends Fragment {
                         .build())
                 .into(imageView);
     }
-
 }
