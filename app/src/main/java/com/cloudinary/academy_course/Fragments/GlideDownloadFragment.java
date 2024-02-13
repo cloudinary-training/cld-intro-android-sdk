@@ -1,5 +1,8 @@
 package com.cloudinary.academy_course.Fragments;
 
+import static java.util.Objects.*;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,12 +12,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.cloudinary.Transformation;
 import com.cloudinary.academy_course.databinding.GlideDownloadFragmentBinding;
-import com.cloudinary.academy_course.databinding.GlideIntegrationFragmentBinding;
-import com.cloudinary.android.CloudinaryRequest;
 import com.cloudinary.android.MediaManager;
-import com.cloudinary.android.ResponsiveUrl;
 import com.cloudinary.android.download.glide.GlideDownloadRequestBuilderFactory;
 
 public class GlideDownloadFragment extends Fragment {
@@ -41,10 +40,11 @@ public class GlideDownloadFragment extends Fragment {
         binding = null;
     }
 
+    @SuppressLint("UseRequireInsteadOfGet")
     private void setImageViewWithGlideIntegration() {
         MediaManager.get().setDownloadRequestBuilderFactory(new GlideDownloadRequestBuilderFactory());
         ImageView imageView = binding.glideDownloadImageview;
-        MediaManager.get().download(getActivity()).load(MediaManager.get().url().generate("swing")).into(imageView);
+        MediaManager.get().download(requireNonNull(getActivity())).load(MediaManager.get().url().generate("swing")).into(imageView);
     }
 
 }
