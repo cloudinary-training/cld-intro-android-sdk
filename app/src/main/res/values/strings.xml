@@ -7,14 +7,12 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
     <string name="welcome">Welcome To Cloudinary\'s Android Course\n</string>
     <string name="welcome_complex_transform">Welcome To Complex Transform Example</string>
     <string name="welcome_transform">Welcome To Transform Example</string>
     <string name="welcome_upload">Welcome To Upload Example</string>
-    <string name="welcome_large_upload">Welcome To Large Upload Example</string>
     <string name="title">Title</string>
     <string name="open_gallery">Open Gallery</string>
     <string name="delivery">Delivery</string>
@@ -22,15 +20,15 @@
     <string name="complex_transform">Complex Transform</string>
     <string name="optimization">Optimization</string>
     <string name="upload">Upload</string>
-    <string name="pre_processing_image">Pre Processing Image</string>
+    <string name="upload_widget">Upload Widget</string>
+    <string name="pre_processing_image">Pre-Processing Image</string>
     <string name="download">Download</string>
     <string name="glide">Glide</string>
     <string name="picasso">Picasso</string>
     <string name="fresco">Fresco</string>
     <string name="download_integration">Download Integration</string>
     <string name="glide_integration">Glide Integration</string>
-    <string name="ui">UI</string>
-    <string name="upload_widget">Upload Widget</string>
+    <string name="ui">Video</string>
     <string name="video_player">Video Player</string>
     <string name="video_feed">Video Feed</string>
     <string name="original">Original</string>
