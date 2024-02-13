@@ -27,12 +27,12 @@ import com.cloudinary.android.callback.UploadCallback;
 import java.util.Map;
 
 public class UploadFragment extends Fragment {
-
     private UploadFragmentBinding binding;
 
     private static final int PICK_IMAGE_REQUEST = 12345;
 
     @Override
+
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
@@ -57,7 +57,7 @@ public class UploadFragment extends Fragment {
             }
         });
     }
-
+    @SuppressWarnings("deprecation")
     private void openGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
@@ -115,7 +115,7 @@ public class UploadFragment extends Fragment {
         ImageView uploadImageview = binding.uploadImageview;
         Glide.with(this).load(URL).into(uploadImageview);
     }
-
+    @SuppressWarnings("deprecation")
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -127,5 +127,17 @@ public class UploadFragment extends Fragment {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
