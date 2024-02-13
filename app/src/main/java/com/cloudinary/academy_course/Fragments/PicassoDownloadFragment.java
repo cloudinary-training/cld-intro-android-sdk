@@ -1,5 +1,8 @@
 package com.cloudinary.academy_course.Fragments;
 
+import static java.util.Objects.requireNonNull;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +12,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.cloudinary.academy_course.databinding.GlideDownloadFragmentBinding;
 import com.cloudinary.academy_course.databinding.PicassoDownloadFragmentBinding;
 import com.cloudinary.android.MediaManager;
-import com.cloudinary.android.download.glide.GlideDownloadRequestBuilderFactory;
 import com.cloudinary.android.download.picasso.PicassoDownloadRequestBuilderFactory;
 
 public class PicassoDownloadFragment extends Fragment {
@@ -21,7 +22,8 @@ public class PicassoDownloadFragment extends Fragment {
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater,
+            ViewGroup container,
             Bundle savedInstanceState
     ) {
         binding = PicassoDownloadFragmentBinding.inflate(inflater, container, false);
@@ -39,10 +41,11 @@ public class PicassoDownloadFragment extends Fragment {
         binding = null;
     }
 
+    @SuppressLint("UseRequireInsteadOfGet")
     private void setImageViewWithPicassoIntegration() {
         MediaManager.get().setDownloadRequestBuilderFactory(new PicassoDownloadRequestBuilderFactory());
         ImageView imageView = binding.picassoDownloadImageview;
-        MediaManager.get().download(getActivity()).load(MediaManager.get().url().generate("aerial")).into(imageView);
+        MediaManager.get().download(requireNonNull(getActivity())).load(MediaManager.get().url().generate("aerial")).into(imageView);
     }
 
 }
