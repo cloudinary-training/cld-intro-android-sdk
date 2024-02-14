@@ -10,13 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.cloudinary.Transformation;
-import com.cloudinary.academy_course.databinding.UploadWidgetFragmentBinding;
 import com.cloudinary.academy_course.databinding.VideoPlayerFragmentBinding;
 import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.cldvideoplayer.CldVideoPlayer;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Objects;
 
 public class VideoPlayerFragment extends Fragment {
@@ -47,7 +44,7 @@ public class VideoPlayerFragment extends Fragment {
 
     @SuppressLint("UseRequireInsteadOfGet")
     private void setVideoPlayer() {
-        CldVideoPlayer player = null;
+        CldVideoPlayer player;
         player = new CldVideoPlayer(Objects.requireNonNull(getContext()),
                 (MediaManager.get().url().resourceType("video").transformation(new Transformation<>().quality("auto")).generate("glacier")));
         binding.playerView.setPlayer(player.getPlayer());

@@ -1,5 +1,6 @@
 package com.cloudinary.academy_course.Fragments.transform_fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.cloudinary.android.MediaManager;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class TransformFragment extends Fragment implements TransformRecycleClick {
 
@@ -46,9 +48,10 @@ public class TransformFragment extends Fragment implements TransformRecycleClick
         binding = null;
     }
 
+    @SuppressLint("UseRequireInsteadOfGet")
     private void setMainImageView(String url) {
         ImageView imageView = binding.transformMainImage;
-        Glide.with(getActivity()).load(url).into(imageView);
+        Glide.with(Objects.requireNonNull(getActivity())).load(url).into(imageView);
     }
 
     private void initRecycleView() {
