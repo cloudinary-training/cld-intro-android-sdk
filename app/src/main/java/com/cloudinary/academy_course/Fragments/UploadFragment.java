@@ -69,31 +69,30 @@ public class UploadFragment extends Fragment {
     }
 
     private void uploadImage(Uri fileUri) {
-//         Uri fileUri = Uri.parse("android.resource://"+getActivity().getPackageName()+"/drawable/butterfly");
         String requestId = MediaManager.get().upload(fileUri)
                 .unsigned("unsigned-image")
                 .callback(new UploadCallback() {
                     @Override
                     public void onStart(String requestId) {
-                        Log.d("Academy Course", "starting upload!!");
+                        Log.d("Academy Course", "Starting Upload...");
                     }
 
                     @Override
                     public void onProgress(String requestId, long bytes, long totalBytes) {
-                        Log.d("Academy Course", "upload in progress");
+                        Log.d("Academy Course", "Upload In Progress");
                     }
 
                     @Override
                     public void onSuccess(String requestId, Map resultData) {
                         binding.uploadProgressbar.setVisibility(View.INVISIBLE);
                         String publicId = (String) resultData.get("public_id");
-                        Log.d("Academy Course", "completed!!");
+                        Log.d("Academy Course", "Upload Complete!");
                         setImageView(publicId);
                     }
 
                     @Override
                     public void onError(String requestId, ErrorInfo error) {
-                        Log.d("Academy Course", "there has been an error");
+                        Log.d("Academy Course", "There has been an error.");
                     }
 
                     @Override
