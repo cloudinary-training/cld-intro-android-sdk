@@ -48,12 +48,7 @@ public class UploadFragment extends Fragment {
 
     private void setUploadButton() {
         Button uploadButton = binding.uploadButton;
-        uploadButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openGallery();
-            }
-        });
+        uploadButton.setOnClickListener(view -> openGallery());
     }
     @SuppressLint("IntentReset")
     @SuppressWarnings("deprecation")
