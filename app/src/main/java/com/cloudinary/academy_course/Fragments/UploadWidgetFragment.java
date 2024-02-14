@@ -50,9 +50,8 @@ public class UploadWidgetFragment extends Fragment {
         uploadButton.setOnClickListener(view -> openUploadWidget());
     }
 
-    @SuppressLint("UseRequireInsteadOfGet")
     private void openUploadWidget() {
-        UploadWidget.startActivity(Objects.requireNonNull(getActivity()), UPLOAD_WIDGET_CODE);
+        UploadWidget.startActivity(requireActivity(), UPLOAD_WIDGET_CODE);
         binding.uploadWidgetProgressbar.setVisibility(View.VISIBLE);
     }
 
