@@ -1,5 +1,6 @@
 package com.cloudinary.academy_course.Fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.cloudinary.android.cldvideoplayer.CldVideoPlayer;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Objects;
 
 public class VideoPlayerFragment extends Fragment {
 
@@ -23,7 +25,7 @@ public class VideoPlayerFragment extends Fragment {
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
@@ -43,9 +45,10 @@ public class VideoPlayerFragment extends Fragment {
         binding = null;
     }
 
+    @SuppressLint("UseRequireInsteadOfGet")
     private void setVideoPlayer() {
         CldVideoPlayer player = null;
-        player = new CldVideoPlayer(getContext(),
+        player = new CldVideoPlayer(Objects.requireNonNull(getContext()),
                 (MediaManager.get().url().resourceType("video").transformation(new Transformation<>().quality("auto")).generate("glacier")));
         binding.playerView.setPlayer(player.getPlayer());
         player.getPlayer().play();

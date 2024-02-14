@@ -26,7 +26,7 @@ public class OptimizationFragment extends Fragment {
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
@@ -37,8 +37,8 @@ public class OptimizationFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setNoOptimizationImageView("lorikeet");
-        setOptimizationImageView("lorikeet");
+        setNoOptimizationImageView();
+        setOptimizationImageView();
     }
 
     @Override
@@ -47,8 +47,8 @@ public class OptimizationFragment extends Fragment {
         binding = null;
     }
 
-    private void setNoOptimizationImageView(String publicId) {
-        String url = MediaManager.get().url().generate(publicId);
+    private void setNoOptimizationImageView() {
+        String url = MediaManager.get().url().generate("lorikeet");
         Glide.with(this)
                 .asBitmap()
                 .load(url)
@@ -72,8 +72,8 @@ public class OptimizationFragment extends Fragment {
                 });
     }
 
-    private void setOptimizationImageView(String publicId) {
-        String url = MediaManager.get().url().transformation(new Transformation().crop("scale").width(800).fetchFormat("avif").quality("auto").dpr("auto")).generate(publicId);
+    private void setOptimizationImageView() {
+        String url = MediaManager.get().url().transformation(new Transformation().crop("scale").width(800).fetchFormat("avif").quality("auto").dpr("auto")).generate("lorikeet");
         Glide.with(this)
                 .asBitmap()
                 .load(url)

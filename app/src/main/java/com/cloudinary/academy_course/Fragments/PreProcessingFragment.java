@@ -1,5 +1,6 @@
 package com.cloudinary.academy_course.Fragments;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -31,6 +32,7 @@ import com.cloudinary.android.preprocess.Limit;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
+import java.util.Objects;
 
 public class PreProcessingFragment extends Fragment {
 
@@ -38,7 +40,7 @@ public class PreProcessingFragment extends Fragment {
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
@@ -59,6 +61,7 @@ public class PreProcessingFragment extends Fragment {
         binding = null;
     }
 
+    @SuppressLint("SetTextI18n")
     private void setOriginalImage() {
         ImageView originalImageView = binding.preprocessingOriginalImageview;
         originalImageView.setImageResource(R.drawable.coffee_with_a_view);
@@ -83,7 +86,7 @@ public class PreProcessingFragment extends Fragment {
     }
 
     private void preProcessImage() {
-        Uri fileUri = Uri.parse("android.resource://"+getActivity().getPackageName()+"/drawable/coffee_with_a_view");
+        @SuppressLint("UseRequireInsteadOfGet") Uri fileUri = Uri.parse("android.resource://"+ Objects.requireNonNull(getActivity()).getPackageName()+"/drawable/coffee_with_a_view");
         String requestId = MediaManager.get().upload(fileUri)
                 .unsigned("unsigned-image")
                 .preprocess(new ImagePreprocessChain()
@@ -128,12 +131,13 @@ public class PreProcessingFragment extends Fragment {
                 .asBitmap()
                 .load(URL)
                 .into(new SimpleTarget<Bitmap>() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onResourceReady(@NonNull Bitmap bitmap, Transition<? super Bitmap> transition) {
                         int bytes = bitmap.getByteCount();
                         double megabytes = bytes / (1024.0 * 1024.0);
 
-                        // Get the length of the bitmap's compressed data in bytes
+                        // Get the length of the bitmap compressed data in bytes
                         ByteArrayOutputStream stream = new ByteArrayOutputStream();
                         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                         byte[] byteArray = stream.toByteArray();

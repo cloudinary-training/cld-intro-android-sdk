@@ -2,6 +2,7 @@ package com.cloudinary.academy_course.Fragments;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -32,6 +33,7 @@ import com.cloudinary.android.uploadwidget.UploadWidget;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class UploadWidgetFragment extends Fragment {
 
@@ -41,7 +43,7 @@ public class UploadWidgetFragment extends Fragment {
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
@@ -65,8 +67,9 @@ public class UploadWidgetFragment extends Fragment {
         });
     }
 
+    @SuppressLint("UseRequireInsteadOfGet")
     private void openUploadWidget() {
-        UploadWidget.startActivity(getActivity(), UPLOAD_WIDGET_CODE);
+        UploadWidget.startActivity(Objects.requireNonNull(getActivity()), UPLOAD_WIDGET_CODE);
         binding.uploadWidgetProgressbar.setVisibility(View.VISIBLE);
     }
 
@@ -78,7 +81,7 @@ public class UploadWidgetFragment extends Fragment {
 
     public void handleResultWidgetResult(Intent data) {
         List<UploadWidget.Result> results = data.getParcelableArrayListExtra(UploadWidget.RESULT_EXTRA);
-        UploadRequest request = UploadWidget.preprocessResult(getActivity(), results.get(0));
+        UploadRequest request = UploadWidget.preprocessResult(getActivity(), Objects.requireNonNull(results).get(0));
         request.unsigned("unsigned-image").callback(new UploadCallback() {
             @Override
             public void onStart(String requestId) {
@@ -88,11 +91,12 @@ public class UploadWidgetFragment extends Fragment {
             public void onProgress(String requestId, long bytes, long totalBytes) {
             }
 
+            @SuppressLint("UseRequireInsteadOfGet")
             @Override
             public void onSuccess(String requestId, Map resultData) {
                 ImageView uploadWidgetImageview = binding.uploadWidgetImageview;
                 String secureUrl = (String) resultData.get("secure_url");
-                Glide.with(getActivity()).load(secureUrl).into(uploadWidgetImageview);
+                Glide.with(Objects.requireNonNull(getActivity())).load(secureUrl).into(uploadWidgetImageview);
                 binding.uploadWidgetProgressbar.setVisibility(View.INVISIBLE);
 
             }

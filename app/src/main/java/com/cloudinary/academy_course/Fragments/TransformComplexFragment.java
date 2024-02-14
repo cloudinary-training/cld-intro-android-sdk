@@ -1,5 +1,6 @@
 package com.cloudinary.academy_course.Fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.cloudinary.academy_course.databinding.TransformComplexFragmentBinding
 import com.cloudinary.android.MediaManager;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class TransformComplexFragment extends Fragment {
 
@@ -25,7 +27,7 @@ public class TransformComplexFragment extends Fragment {
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
@@ -46,8 +48,9 @@ public class TransformComplexFragment extends Fragment {
         binding = null;
     }
 
+    @SuppressLint("UseRequireInsteadOfGet")
     private void setMainImageView(String url) {
         ImageView imageView = binding.complexTransformMainImage;
-        Glide.with(getActivity()).load(url).into(imageView);
+        Glide.with(Objects.requireNonNull(getActivity())).load(url).into(imageView);
     }
 }

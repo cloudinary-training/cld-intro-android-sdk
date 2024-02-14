@@ -1,5 +1,6 @@
 package com.cloudinary.academy_course.Fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -34,7 +35,7 @@ public class UploadFragment extends Fragment {
     @Override
 
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
@@ -57,6 +58,7 @@ public class UploadFragment extends Fragment {
             }
         });
     }
+    @SuppressLint("IntentReset")
     @SuppressWarnings("deprecation")
     private void openGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
