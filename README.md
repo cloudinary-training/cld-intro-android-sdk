@@ -1,10 +1,10 @@
 # Introduction to Cloudinary's Android SDK
 This repository is used in conjunction with the Cloudinary Academy training course, **Introduction to Cloudinary's Android SDK**.
 
-If you would like to take this 45 minute course, you can enroll for free at [training.cloudinary.com](https://training.cloudinary.com).
+If you would like to take this 45-minute course, you can enroll for free at [training.cloudinary.com](https://training.cloudinary.com).
 
 # Course Outline:
-The information below corresponds with the [slides](https://cloudinary-marketing-res.cloudinary.com/image/upload/v1708029538/intro-to-cld-for-android-developers.pdf) used in **Introduction to Cloudinary's Android SDK**.
+The information below corresponds with the [slides](https://cloudinary-marketing-res.cloudinary.com/image/upload/v1708029906/Intro-to-Cloudinary-Android-SDK.pdf) used in **Introduction to Cloudinary's Android SDK**.
 
 Course Topics:
 - Introduction
