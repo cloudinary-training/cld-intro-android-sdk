@@ -67,11 +67,9 @@ Java(TM) SE Runtime Environment (build 1.8.0_311-b11)
 Java HotSpot(TM) 64-Bit Server VM (build 25.311-b11, mixed mode)
 ```
 
-## Executing Code
-
 ### Providing Cloudinary Credentials
 
-You will need to [register for a free Cloudinary account](https://cloudinary.com/users/register/free) in order to work along with this training.
+You will need to [register for a free Cloudinary account](https://cloudinary.com/users/register/free) to work along with this training.
 
 It is recommended that you create a training account for this training to keep this work separate from any work you do in a production Cloudinary account.
 
@@ -80,12 +78,6 @@ You only need an email address that can be verified to set up this account.
 Navigate to:  [https://cloudinary.com/console](https://cloudinary.com/console)
 
 ![cloudinary url](https://res.cloudinary.com/jen-brissman/image/upload/v1702021754/cld-url.png)
-
-Cloudinary provides 3 credentials for developers to use in interacting with SDK's and Widgets:
-
-1. CLOUD_NAME
-2. API_KEY
-3. API_SECRET
 
 CLOUD_NAME and API_KEY can be revealed without creating any security issues, but you must keep API_SECRET private. Don't check it into GitHub and don't include it in blog posts.
 - For this course, you only need your cloud name, so there won't be any risk of security. 
