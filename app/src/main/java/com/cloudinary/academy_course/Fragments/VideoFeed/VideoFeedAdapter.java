@@ -1,29 +1,18 @@
 package com.cloudinary.academy_course.Fragments.VideoFeed;
 
 import android.content.Context;
-import android.net.Uri;
-import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.MediaController;
-import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.OptIn;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.media3.common.Player;
 import androidx.media3.common.util.UnstableApi;
 import androidx.media3.ui.PlayerView;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.PagerAdapter;
 
-import com.cloudinary.academy_course.Fragments.transform_fragment.ImageViewHolder;
-import com.cloudinary.academy_course.databinding.ItemImageBinding;
-import com.cloudinary.academy_course.databinding.VideoFeedFragmentBinding;
 import com.cloudinary.academy_course.databinding.VideoFeedItemBinding;
 import com.cloudinary.android.cldvideoplayer.CldVideoPlayer;
 
