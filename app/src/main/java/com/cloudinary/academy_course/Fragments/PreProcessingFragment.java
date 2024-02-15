@@ -34,6 +34,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.Map;
 import java.util.Objects;
 
+/** @noinspection ALL*/
 public class PreProcessingFragment extends Fragment {
 
     private PreprocessFragmentBinding binding;
@@ -86,7 +87,7 @@ public class PreProcessingFragment extends Fragment {
     }
 
     private void preProcessImage() {
-        @SuppressLint("UseRequireInsteadOfGet") Uri fileUri = Uri.parse("android.resource://"+ Objects.requireNonNull(getActivity()).getPackageName()+"/drawable/coffee_with_a_view");
+        Uri fileUri = Uri.parse("android.resource://"+ Objects.requireNonNull(getActivity()).getPackageName()+"/drawable/coffee_with_a_view");
         String requestId = MediaManager.get().upload(fileUri)
                 .unsigned("unsigned-image")
                 .preprocess(new ImagePreprocessChain()
