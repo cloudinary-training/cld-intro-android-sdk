@@ -57,7 +57,6 @@ public class TransformFragment extends Fragment implements TransformRecycleClick
     private void initRecycleView() {
         RecyclerView recyclerView = binding.transformRecyclerView;
         TransformRecycleAdapter adapter = new TransformRecycleAdapter(this, buildTransformUrls());
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setAdapter(adapter);
     }
 
