@@ -40,14 +40,12 @@ The Cloudinary Java SDK will run on Java 6 and any higher version. For purposes 
 
 We'll be presenting this content using [Android Studio](https://developer.android.com/studio)
 
-You may import the Java code used into your favorite IDE. You'll find the `MainActivity.java` in the repo in the folder `app/src/main/java/com/cloudinary/academy_course`.
-
 This is the entry point to static "runners" that contain code to help you upload, manage and transform your media.
 
 
 ### Install Java
 
-- Java 6 or greater, we are be using version 8 in the course
+- We are using Java version 8 in the course
 - Java Download www.oracle.com/java/technologies/javase/javase-jdk8-downloads
 - Mac : brew install recommended https://brew.sh/
 - You can find [instructions for downloading and installing Java ](https://www.java.com/en/download/help/index_installing.html) for many environments.
@@ -79,7 +77,10 @@ Navigate to:  [https://cloudinary.com/console](https://cloudinary.com/console)
 
 ![cloudinary url](https://res.cloudinary.com/jen-brissman/image/upload/v1702021754/cld-url.png)
 
-CLOUD_NAME and API_KEY can be revealed without creating any security issues, but you must keep API_SECRET private. Don't check it into GitHub and don't include it in blog posts.
+CLOUD_NAME and API_KEY can be revealed without creating any security issues, but you must keep API_SECRET private. It’s strongly recommended not to keep your API Secret anywhere within the app code.
+
+
+Don't check it into GitHub and don't include it in blog posts.
 - For this course, you only need your cloud name, so there won't be any risk of security. 
 
 ## Assets
