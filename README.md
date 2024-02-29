@@ -34,7 +34,7 @@ Course Topics:
 ## Setup Environment
 
 ### Java
-The Cloudinary Java SDK will run on Java 6 and any higher version. For purposes of training, we are using **Java Version 8**.
+The Cloudinary Android SDK will run on Java 6 and any higher version. For purposes of training, we are using **Java Version 8**.
 
 ### IDE
 
